@@ -17,7 +17,7 @@ We will use this folder to track the plugins we want to include in the market pl
 
 ### Context Link
 Ready to include: true
-official URL: https://github.com/oliwoodsuk/context-link-plugin
+official URL: https://github.com/Context-Link/context-link-plugin
 
 - name: context-link
 - description: Connect Claude to your Context Link knowledge base. Retrieve internal knowledge, save conversation insights, and keep your saved content up to date.

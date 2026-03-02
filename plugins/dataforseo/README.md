@@ -17,9 +17,6 @@ A Claude Code skill that provides complete DataForSEO API integration for SEO da
 
 ### Option 1: Using skills.sh (Recommended)
 
-```bash
-npx skills.sh install nikhilbhansali/dataforseo-skill-claude
-```
 
 ### Option 2: Manual Install
 

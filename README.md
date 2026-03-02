@@ -26,7 +26,7 @@ Add this marketplace to Claude Cowork desktop:
 4. Select **"Browse plugins"**
 5. Click the **"Personal"** tab, then the **"+"** icon
 6. Select **"Add marketplace from GitHub"**
-7. Paste: `https://github.com/oliwoodsuk/claude-cowork-plugins-for-marketing`
+7. Paste: `https://github.com/Context-Link/claude-cowork-plugins-for-marketing`
 
 Once added, you can browse and install any plugin from this marketplace directly in Claude Cowork.
 
@@ -34,11 +34,11 @@ Once added, you can browse and install any plugin from this marketplace directly
 
 | Plugin | Author | Skills | Description |
 |--------|--------|--------|-------------|
-| **context-link** | Context Link | 3 | Connect Claude to your Context Link knowledge base |
-| **dataforseo** | Context Link | 8 | Complete DataForSEO API integration for SEO research |
-| **marketing** | Anthropic | 5 | Content creation, campaigns, and performance analytics |
-| **marketing-skills** | Conversion Factory | 32 | Comprehensive marketing skills and CLI tools |
-| **seo-machine** | Craig Hewitt | 27 | Full SEO content creation workspace |
+| **context-link** | [Context Link](https://github.com/Context-Link/context-link-plugin) | 3 | Connect Claude to your Context Link knowledge base |
+| **dataforseo** | [started from nikhilbhansali's dataforseo-skill-claude](https://github.com/nikhilbhansali/dataforseo-skill-claude) | 8 | Complete DataForSEO API integration for SEO research |
+| **marketing** | [Anthropic](https://github.com/anthropics/knowledge-work-plugins/tree/main/marketing) | 5 | Content creation, campaigns, and performance analytics |
+| **marketing-skills** | [Conversion Factory](https://github.com/coreyhaines31/marketingskills) | 32 | Comprehensive marketing skills and CLI tools |
+| **seo-machine** | [Craig Hewitt](https://github.com/TheCraigHewitt/seomachine) | 27 | Full SEO content creation workspace |
 
 **Total: 75 skills across 5 plugins**
 
