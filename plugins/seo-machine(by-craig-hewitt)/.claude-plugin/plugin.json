@@ -1,0 +1,24 @@
+{
+  "name": "seo-machine",
+  "description": "A comprehensive Claude Code workspace for creating long-form, SEO-optimized blog content. Features custom commands for research, writing, and optimization workflows; specialized agents for content analysis, SEO optimization, meta creation, and internal linking; 26 marketing skills for copywriting, CRO, and strategy; advanced Python-based SEO analysis modules; and data integrations with Google Analytics 4, Search Console, and DataForSEO.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Craig Hewitt"
+  },
+  "repository": "https://github.com/TheCraigHewitt/seomachine",
+  "keywords": [
+    "seo",
+    "content-marketing",
+    "blog-writing",
+    "keyword-research",
+    "content-optimization",
+    "analytics",
+    "google-analytics",
+    "search-console",
+    "copywriting",
+    "cro",
+    "landing-pages",
+    "wordpress"
+  ],
+  "license": "MIT"
+}

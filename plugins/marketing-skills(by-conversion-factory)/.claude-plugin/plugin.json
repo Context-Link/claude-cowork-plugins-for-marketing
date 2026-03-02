@@ -1,0 +1,9 @@
+{
+  "name": "marketing-skills",
+  "description": "A comprehensive collection of 25+ marketing skills and tactics for conversion-focused marketers. Includes expert guidance on copywriting, cold email outreach, marketing psychology (70+ mental models), pricing strategy, SEO audits, content strategy, social media content, email sequences, CRO (conversion rate optimization), A/B testing, analytics tracking, paid advertising, sales enablement, and more. Each skill provides structured frameworks, best practices, templates, and actionable checklists to help marketers create high-converting campaigns and optimize every stage of the customer journey.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Conversion Factory (Corey Haines)"
+  },
+  "repository": "https://github.com/coreyhaines31/marketingskills"
+}

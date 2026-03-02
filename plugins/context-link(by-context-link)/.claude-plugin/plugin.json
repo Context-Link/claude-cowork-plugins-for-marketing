@@ -1,0 +1,11 @@
+{
+  "name": "context-link",
+  "description": "Connect Claude to your Context Link knowledge base. Retrieve internal knowledge, save conversation insights, and keep your saved content up to date.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Context Link"
+  },
+  "homepage": "https://context-link.ai",
+  "repository": "https://github.com/oliwoodsuk/context-link-plugin",
+  "license": "MIT"
+}

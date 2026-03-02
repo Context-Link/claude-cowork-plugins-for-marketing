@@ -1,13 +1,77 @@
 {
-	"name": "claude-cowork-plugins-for-marketing",
-	"owner": {
-		"name": "Context Link"
-	},
-	"plugins": [
-		{
-			"name": "Context Link",
-			"source": "./plugins/context-link(by-context-link)",
-			"description": "Context Link gives Claude reliable business context and a shared workspace. Connect your docs (Notion, Google Docs, websites) once, then fetch relevant snippets by meaning and save/update canonical notes your team can reuse."
-		}
-	]
+  "name": "claude-cowork-plugins-for-marketing",
+  "owner": {
+    "name": "Context Link",
+    "email": "hello@context-link.ai"
+  },
+  "metadata": {
+    "description": "A curated marketplace of high-quality marketing plugins for Claude Code. Features tools for knowledge management, SEO, content creation, campaign planning, analytics, and conversion optimization.",
+    "version": "1.0.0",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "context-link",
+      "source": "./context-link(by-context-link)",
+      "description": "Connect Claude to your Context Link knowledge base. Retrieve internal knowledge, save conversation insights, and keep your saved content up to date.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Context Link"
+      },
+      "homepage": "https://context-link.ai",
+      "repository": "https://github.com/oliwoodsuk/context-link-plugin",
+      "license": "MIT",
+      "category": "knowledge-management",
+      "tags": ["knowledge-base", "context", "memory", "documentation"]
+    },
+    {
+      "name": "marketing",
+      "source": "./marketing(by-anthropic)",
+      "description": "Create content, plan campaigns, and analyze performance across marketing channels. Maintain brand voice consistency, track competitors, and report on what's working.",
+      "version": "1.1.0",
+      "author": {
+        "name": "Anthropic"
+      },
+      "repository": "https://github.com/anthropics/knowledge-work-plugins/tree/main/marketing",
+      "category": "marketing",
+      "tags": ["content-creation", "campaigns", "brand-voice", "analytics", "competitor-tracking"]
+    },
+    {
+      "name": "marketing-skills",
+      "source": "./marketing-skills(by-conversion-factory)",
+      "description": "A comprehensive collection of 25+ marketing skills and tactics for conversion-focused marketers. Includes expert guidance on copywriting, cold email outreach, marketing psychology (70+ mental models), pricing strategy, SEO audits, content strategy, social media content, email sequences, CRO, A/B testing, analytics tracking, paid advertising, sales enablement, and more.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Conversion Factory (Corey Haines)"
+      },
+      "repository": "https://github.com/coreyhaines31/marketingskills",
+      "category": "marketing",
+      "tags": ["copywriting", "cro", "email-marketing", "psychology", "pricing", "seo", "paid-ads", "sales"]
+    },
+    {
+      "name": "dataforseo",
+      "source": "./dataforseo",
+      "description": "Complete DataForSEO API integration with 8 specialized skills: keyword research (search volume, CPC, keyword ideas), SERP analysis (Google, Bing, YouTube rankings), backlink analysis (profiles, referring domains, domain authority), competitor analysis (keyword gaps, competing domains), technical SEO (Lighthouse audits, page analysis, technology detection), content analysis (brand mentions, sentiment), and Google Trends.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Context Link"
+      },
+      "repository": "https://github.com/oliwoodsuk/claude-cowork-plugins-for-marketing",
+      "category": "seo",
+      "tags": ["seo", "keyword-research", "serp", "backlinks", "competitor-analysis", "technical-seo", "google-trends", "dataforseo-api"]
+    },
+    {
+      "name": "seo-machine",
+      "source": "./seo-machine(by-craig-hewitt)",
+      "description": "A comprehensive Claude Code workspace for creating long-form, SEO-optimized blog content. Features custom commands for research, writing, and optimization workflows; specialized agents for content analysis, SEO optimization, meta creation, and internal linking; 26 marketing skills; Python-based SEO analysis modules; and data integrations with Google Analytics 4, Search Console, and DataForSEO.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Craig Hewitt"
+      },
+      "repository": "https://github.com/TheCraigHewitt/seomachine",
+      "license": "MIT",
+      "category": "seo",
+      "tags": ["seo", "content-marketing", "blog-writing", "keyword-research", "analytics", "google-analytics", "wordpress", "copywriting", "cro"]
+    }
+  ]
 }
