@@ -1,10 +1,10 @@
 # Claude Cowork Plugins for Marketing
 
-A curated marketplace of Claude Code plugins for marketing professionals.
+A curated marketplace of Claude Cowork plugins for marketing professionals.
 
 ## Why This Marketplace?
 
-Claude Code is powerful, but out of the box it doesn't know your brand voice, SEO best practices, or marketing workflows. These plugins fix that.
+Claude Cowork is powerful, but out of the box it doesn't know your brand voice, SEO best practices, or marketing workflows. These plugins fix that.
 
 This marketplace brings together the best community-built marketing plugins in one place:
 
@@ -18,9 +18,9 @@ Each plugin is linked to its original source repository. We curate, test, and ma
 
 ## Installation
 
-Add this marketplace to Claude Code desktop:
+Add this marketplace to Claude Cowork desktop:
 
-1. Open **Claude Code** on desktop
+1. Open **Claude Cowork** on desktop
 2. In the left sidebar, click **"Customize"**
 3. Next to **"Personal Plugins"**, click the **"+"** button
 4. Select **"Browse plugins"**
@@ -28,7 +28,7 @@ Add this marketplace to Claude Code desktop:
 6. Select **"Add marketplace from GitHub"**
 7. Paste: `https://github.com/oliwoodsuk/claude-cowork-plugins-for-marketing`
 
-Once added, you can browse and install any plugin from this marketplace directly in Claude Code.
+Once added, you can browse and install any plugin from this marketplace directly in Claude Cowork.
 
 ## Plugins
 
