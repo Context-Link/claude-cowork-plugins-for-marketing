@@ -4,524 +4,599 @@
     "description": "Retrieve internal knowledge via Context Link when the user references company knowledge or says \"get context\", \"use context link\", \"check context link\", or asks about internal information that may be stored in their knowledge base.",
     "plugin": "context-link",
     "version": "0.1.0",
-    "path": "plugins/context-link(by-context-link)/skills/get-context/SKILL.md"
+    "path": "plugins/context-link(by-context-link)/skills/get-context/SKILL.md",
+    "tags": ["knowledge-base", "context", "retrieval", "documentation"]
   },
   {
     "name": "save-memory",
     "description": "Save conversation content or specified text to Context Link for later retrieval. Use when the user says \"save this\", \"remember this\", \"save memory\", \"save to context link\", or asks to store information for future reference.",
     "plugin": "context-link",
     "version": "0.1.0",
-    "path": "plugins/context-link(by-context-link)/skills/save-memory/SKILL.md"
+    "path": "plugins/context-link(by-context-link)/skills/save-memory/SKILL.md",
+    "tags": ["knowledge-base", "memory", "storage", "documentation"]
   },
   {
     "name": "update-memory",
     "description": "Retrieve saved content from Context Link, update it with current context, and save it back. Use when the user says \"update memory\", \"update context link\", \"add to {topic}\", or wants to modify existing saved content with new information.",
     "plugin": "context-link",
     "version": "0.1.0",
-    "path": "plugins/context-link(by-context-link)/skills/update-memory/SKILL.md"
+    "path": "plugins/context-link(by-context-link)/skills/update-memory/SKILL.md",
+    "tags": ["knowledge-base", "memory", "update", "documentation"]
   },
   {
     "name": "backlink-analysis",
     "description": "DataForSEO backlink analysis: backlink profiles, referring domains, anchors, domain authority",
     "plugin": "dataforseo",
     "version": "1.0.0",
-    "path": "plugins/dataforseo/skills/backlink-analysis/SKILL.md"
+    "path": "plugins/dataforseo/skills/backlink-analysis/SKILL.md",
+    "tags": ["seo", "backlinks", "link-building", "domain-authority", "dataforseo-api"]
   },
   {
     "name": "competitor-analysis",
     "description": "DataForSEO competitor analysis: keyword gaps, competing domains, domain intersection, link gaps. Use when the user mentions 'competitor analysis', 'keyword gap', 'content gap', 'competing domains', 'domain comparison', 'link gap', 'backlink gap', 'find competitors', or 'domain intersection'.",
     "plugin": "dataforseo",
     "version": "1.0.0",
-    "path": "plugins/dataforseo/skills/competitor-analysis/SKILL.md"
+    "path": "plugins/dataforseo/skills/competitor-analysis/SKILL.md",
+    "tags": ["seo", "competitor-analysis", "keyword-gap", "content-gap", "dataforseo-api"]
   },
   {
     "name": "content-analysis",
     "description": "DataForSEO content analysis: brand mentions, sentiment analysis, content monitoring",
     "plugin": "dataforseo",
     "version": "1.0.0",
-    "path": "plugins/dataforseo/skills/content-analysis/SKILL.md"
+    "path": "plugins/dataforseo/skills/content-analysis/SKILL.md",
+    "tags": ["seo", "content-analysis", "brand-monitoring", "sentiment-analysis", "dataforseo-api"]
   },
   {
     "name": "google-trends",
     "description": "DataForSEO Google Trends: search interest over time, trending topics, keyword trends",
     "plugin": "dataforseo",
     "version": "1.0.0",
-    "path": "plugins/dataforseo/skills/google-trends/SKILL.md"
+    "path": "plugins/dataforseo/skills/google-trends/SKILL.md",
+    "tags": ["seo", "google-trends", "keyword-research", "trend-analysis", "dataforseo-api"]
   },
   {
     "name": "keyword-research",
     "description": "DataForSEO keyword research: search volume, CPC, competition metrics, keyword ideas, and keyword suggestions",
     "plugin": "dataforseo",
     "version": "1.0.0",
-    "path": "plugins/dataforseo/skills/keyword-research/SKILL.md"
+    "path": "plugins/dataforseo/skills/keyword-research/SKILL.md",
+    "tags": ["seo", "keyword-research", "search-volume", "ppc", "dataforseo-api"]
   },
   {
     "name": "serp-analysis",
     "description": "DataForSEO SERP analysis: Google, Bing, YouTube organic search results and rankings",
     "plugin": "dataforseo",
     "version": "1.0.0",
-    "path": "plugins/dataforseo/skills/serp-analysis/SKILL.md"
+    "path": "plugins/dataforseo/skills/serp-analysis/SKILL.md",
+    "tags": ["seo", "serp", "rankings", "search-results", "dataforseo-api"]
   },
   {
     "name": "setup-dataforseo",
     "description": "Set up DataForSEO API credentials for accessing SEO, SERP, backlinks, and keyword data APIs",
     "plugin": "dataforseo",
     "version": "1.0.0",
-    "path": "plugins/dataforseo/skills/setup-dataforseo/SKILL.md"
+    "path": "plugins/dataforseo/skills/setup-dataforseo/SKILL.md",
+    "tags": ["setup", "api-configuration", "dataforseo-api"]
   },
   {
     "name": "technical-seo",
     "description": "DataForSEO technical SEO: page audits, Lighthouse scores, site crawls, technology detection",
     "plugin": "dataforseo",
     "version": "1.0.0",
-    "path": "plugins/dataforseo/skills/technical-seo/SKILL.md"
+    "path": "plugins/dataforseo/skills/technical-seo/SKILL.md",
+    "tags": ["seo", "technical-seo", "page-audit", "lighthouse", "site-crawl", "dataforseo-api"]
   },
   {
     "name": "brand-voice",
     "description": "Apply and enforce brand voice, style guide, and messaging pillars across content. Use when reviewing content for brand consistency, documenting a brand voice, adapting tone for different audiences, or checking terminology and style guide compliance.",
     "plugin": "marketing",
     "version": "1.0.0",
-    "path": "plugins/marketing(by-anthropic)/skills/brand-voice/SKILL.md"
+    "path": "plugins/marketing(by-anthropic)/skills/brand-voice/SKILL.md",
+    "tags": ["brand-voice", "style-guide", "content-creation", "messaging"]
   },
   {
     "name": "campaign-planning",
     "description": "Plan marketing campaigns with objectives, audience segmentation, channel strategy, content calendars, and success metrics. Use when launching a campaign, planning a product launch, building a content calendar, allocating budget across channels, or defining campaign KPIs.",
     "plugin": "marketing",
     "version": "1.0.0",
-    "path": "plugins/marketing(by-anthropic)/skills/campaign-planning/SKILL.md"
+    "path": "plugins/marketing(by-anthropic)/skills/campaign-planning/SKILL.md",
+    "tags": ["campaigns", "planning", "content-calendar", "channel-strategy", "kpis"]
   },
   {
     "name": "competitive-analysis",
     "description": "Research competitors and compare positioning, messaging, content strategy, and market presence. Use when analyzing a competitor, building battlecards, identifying content gaps, comparing feature messaging, or preparing competitive positioning recommendations.",
     "plugin": "marketing",
     "version": "1.0.0",
-    "path": "plugins/marketing(by-anthropic)/skills/competitive-analysis/SKILL.md"
+    "path": "plugins/marketing(by-anthropic)/skills/competitive-analysis/SKILL.md",
+    "tags": ["competitor-tracking", "research", "positioning", "battlecards"]
   },
   {
     "name": "content-creation",
-    "description": "Draft marketing content across channels \u2014 blog posts, social media, email newsletters, landing pages, press releases, and case studies. Use when writing any marketing content, when you need channel-specific formatting, SEO-optimized copy, headline options, or calls to action.",
+    "description": "Draft marketing content across channels — blog posts, social media, email newsletters, landing pages, press releases, and case studies. Use when writing any marketing content, when you need channel-specific formatting, SEO-optimized copy, headline options, or calls to action.",
     "plugin": "marketing",
     "version": "1.0.0",
-    "path": "plugins/marketing(by-anthropic)/skills/content-creation/SKILL.md"
+    "path": "plugins/marketing(by-anthropic)/skills/content-creation/SKILL.md",
+    "tags": ["content-creation", "copywriting", "blog-writing", "social-media", "email-marketing"]
   },
   {
     "name": "performance-analytics",
     "description": "Analyze marketing performance with key metrics, trend analysis, and optimization recommendations. Use when building performance reports, reviewing campaign results, analyzing channel metrics (email, social, paid, SEO), or identifying what's working and what needs improvement.",
     "plugin": "marketing",
     "version": "1.0.0",
-    "path": "plugins/marketing(by-anthropic)/skills/performance-analytics/SKILL.md"
+    "path": "plugins/marketing(by-anthropic)/skills/performance-analytics/SKILL.md",
+    "tags": ["analytics", "reporting", "metrics", "performance", "optimization"]
   },
   {
     "name": "ab-test-setup",
     "description": "When the user wants to plan, design, or implement an A/B test or experiment. Also use when the user mentions \"A/B test,\" \"split test,\" \"experiment,\" \"test this change,\" \"variant copy,\" \"multivariate test,\" or \"hypothesis.\" For tracking implementation, see analytics-tracking.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/ab-test-setup/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/ab-test-setup/SKILL.md",
+    "tags": ["cro", "ab-testing", "experimentation", "optimization"]
   },
   {
     "name": "ad-creative",
-    "description": "When the user wants to generate, iterate, or scale ad creative \u2014 headlines, descriptions, primary text, or full ad variations \u2014 for any paid advertising platform. Also use when the user mentions 'ad copy variations,' 'ad creative,' 'generate headlines,' 'RSA headlines,' 'bulk ad copy,' 'ad iterations,' 'creative testing,' or 'ad performance optimization.' This skill covers generating ad creative at scale, iterating based on performance data, and enforcing platform character limits. For campaign strategy and targeting, see paid-ads. For landing page copy, see copywriting.",
+    "description": "When the user wants to generate, iterate, or scale ad creative — headlines, descriptions, primary text, or full ad variations — for any paid advertising platform. Also use when the user mentions 'ad copy variations,' 'ad creative,' 'generate headlines,' 'RSA headlines,' 'bulk ad copy,' 'ad iterations,' 'creative testing,' or 'ad performance optimization.' This skill covers generating ad creative at scale, iterating based on performance data, and enforcing platform character limits. For campaign strategy and targeting, see paid-ads. For landing page copy, see copywriting.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/ad-creative/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/ad-creative/SKILL.md",
+    "tags": ["paid-ads", "ad-creative", "copywriting", "ppc", "headlines"]
   },
   {
     "name": "ai-seo",
     "description": "When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-generated answers. Also use when the user mentions 'AI SEO,' 'AEO,' 'GEO,' 'LLMO,' 'answer engine optimization,' 'generative engine optimization,' 'LLM optimization,' 'AI Overviews,' 'optimize for ChatGPT,' 'optimize for Perplexity,' 'AI citations,' 'AI visibility,' or 'zero-click search.' This skill covers content optimization for AI answer engines, monitoring AI visibility, and getting cited as a source. For traditional technical and on-page SEO audits, see seo-audit. For structured data implementation, see schema-markup.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/ai-seo/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/ai-seo/SKILL.md",
+    "tags": ["seo", "ai-seo", "content-optimization", "llm-optimization", "answer-engine"]
   },
   {
     "name": "analytics-tracking",
     "description": "When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when the user mentions \"set up tracking,\" \"GA4,\" \"Google Analytics,\" \"conversion tracking,\" \"event tracking,\" \"UTM parameters,\" \"tag manager,\" \"GTM,\" \"analytics implementation,\" or \"tracking plan.\" For A/B test measurement, see ab-test-setup.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/analytics-tracking/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/analytics-tracking/SKILL.md",
+    "tags": ["analytics", "google-analytics", "tracking", "gtm", "conversion-tracking"]
   },
   {
     "name": "churn-prevention",
     "description": "When the user wants to reduce churn, build cancellation flows, set up save offers, recover failed payments, or implement retention strategies. Also use when the user mentions 'churn,' 'cancel flow,' 'offboarding,' 'save offer,' 'dunning,' 'failed payment recovery,' 'win-back,' 'retention,' 'exit survey,' 'pause subscription,' or 'involuntary churn.' This skill covers voluntary churn (cancel flows, save offers, exit surveys) and involuntary churn (dunning, payment recovery). For post-cancel win-back email sequences, see email-sequence. For in-app upgrade paywalls, see paywall-upgrade-cro.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/churn-prevention/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/churn-prevention/SKILL.md",
+    "tags": ["retention", "churn", "saas", "subscription", "customer-success"]
   },
   {
     "name": "cold-email",
     "description": "Write B2B cold emails and follow-up sequences that get replies. Use when the user wants to write cold outreach emails, prospecting emails, cold email campaigns, sales development emails, or SDR emails. Covers subject lines, opening lines, body copy, CTAs, personalization, and multi-touch follow-up sequences.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/cold-email/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/cold-email/SKILL.md",
+    "tags": ["email-marketing", "cold-outreach", "sales", "b2b", "prospecting"]
   },
   {
     "name": "competitor-alternatives",
     "description": "When the user wants to create competitor comparison or alternative pages for SEO and sales enablement. Also use when the user mentions 'alternative page,' 'vs page,' 'competitor comparison,' 'comparison page,' '[Product] vs [Product],' '[Product] alternative,' or 'competitive landing pages.' Covers four formats: singular alternative, plural alternatives, you vs competitor, and competitor vs competitor. Emphasizes deep research, modular content architecture, and varied section types beyond feature tables.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/competitor-alternatives/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/competitor-alternatives/SKILL.md",
+    "tags": ["competitor-tracking", "seo", "landing-pages", "sales", "comparison"]
   },
   {
     "name": "content-strategy",
     "description": "When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions \"content strategy,\" \"what should I write about,\" \"content ideas,\" \"blog strategy,\" \"topic clusters,\" or \"content planning.\" For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/content-strategy/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/content-strategy/SKILL.md",
+    "tags": ["content-marketing", "strategy", "planning", "topic-clusters", "blog-writing"]
   },
   {
     "name": "copy-editing",
     "description": "When the user wants to edit, review, or improve existing marketing copy. Also use when the user mentions 'edit this copy,' 'review my copy,' 'copy feedback,' 'proofread,' 'polish this,' 'make this better,' or 'copy sweep.' This skill provides a systematic approach to editing marketing copy through multiple focused passes.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/copy-editing/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/copy-editing/SKILL.md",
+    "tags": ["copywriting", "editing", "proofreading", "content-creation"]
   },
   {
     "name": "copywriting",
-    "description": "When the user wants to write, rewrite, or improve marketing copy for any page \u2014 including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also use when the user says \"write copy for,\" \"improve this copy,\" \"rewrite this page,\" \"marketing copy,\" \"headline help,\" or \"CTA copy.\" For email copy, see email-sequence. For popup copy, see popup-cro.",
+    "description": "When the user wants to write, rewrite, or improve marketing copy for any page — including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also use when the user says \"write copy for,\" \"improve this copy,\" \"rewrite this page,\" \"marketing copy,\" \"headline help,\" or \"CTA copy.\" For email copy, see email-sequence. For popup copy, see popup-cro.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/copywriting/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/copywriting/SKILL.md",
+    "tags": ["copywriting", "landing-pages", "content-creation", "cro", "headlines"]
   },
   {
     "name": "email-sequence",
     "description": "When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or lifecycle email program. Also use when the user mentions \"email sequence,\" \"drip campaign,\" \"nurture sequence,\" \"onboarding emails,\" \"welcome sequence,\" \"re-engagement emails,\" \"email automation,\" or \"lifecycle emails.\" For in-app onboarding, see onboarding-cro.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/email-sequence/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/email-sequence/SKILL.md",
+    "tags": ["email-marketing", "automation", "drip-campaigns", "lifecycle", "nurture"]
   },
   {
     "name": "form-cro",
-    "description": "When the user wants to optimize any form that is NOT signup/registration \u2014 including lead capture forms, contact forms, demo request forms, application forms, survey forms, or checkout forms. Also use when the user mentions \"form optimization,\" \"lead form conversions,\" \"form friction,\" \"form fields,\" \"form completion rate,\" or \"contact form.\" For signup/registration forms, see signup-flow-cro. For popups containing forms, see popup-cro.",
+    "description": "When the user wants to optimize any form that is NOT signup/registration — including lead capture forms, contact forms, demo request forms, application forms, survey forms, or checkout forms. Also use when the user mentions \"form optimization,\" \"lead form conversions,\" \"form friction,\" \"form fields,\" \"form completion rate,\" or \"contact form.\" For signup/registration forms, see signup-flow-cro. For popups containing forms, see popup-cro.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/form-cro/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/form-cro/SKILL.md",
+    "tags": ["cro", "forms", "lead-generation", "optimization", "ux"]
   },
   {
     "name": "free-tool-strategy",
-    "description": "When the user wants to plan, evaluate, or build a free tool for marketing purposes \u2014 lead generation, SEO value, or brand awareness. Also use when the user mentions \"engineering as marketing,\" \"free tool,\" \"marketing tool,\" \"calculator,\" \"generator,\" \"interactive tool,\" \"lead gen tool,\" \"build a tool for leads,\" or \"free resource.\" This skill bridges engineering and marketing \u2014 useful for founders and technical marketers.",
+    "description": "When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation, SEO value, or brand awareness. Also use when the user mentions \"engineering as marketing,\" \"free tool,\" \"marketing tool,\" \"calculator,\" \"generator,\" \"interactive tool,\" \"lead gen tool,\" \"build a tool for leads,\" or \"free resource.\" This skill bridges engineering and marketing — useful for founders and technical marketers.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/free-tool-strategy/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/free-tool-strategy/SKILL.md",
+    "tags": ["lead-generation", "engineering-as-marketing", "tools", "seo", "growth"]
   },
   {
     "name": "launch-strategy",
     "description": "When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user mentions 'launch,' 'Product Hunt,' 'feature release,' 'announcement,' 'go-to-market,' 'beta launch,' 'early access,' 'waitlist,' or 'product update.' This skill covers phased launches, channel strategy, and ongoing launch momentum.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/launch-strategy/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/launch-strategy/SKILL.md",
+    "tags": ["product-launch", "go-to-market", "campaigns", "product-hunt", "announcements"]
   },
   {
     "name": "marketing-ideas",
     "description": "When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. Also use when the user asks for 'marketing ideas,' 'growth ideas,' 'how to market,' 'marketing strategies,' 'marketing tactics,' 'ways to promote,' or 'ideas to grow.' This skill provides 139 proven marketing approaches organized by category.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/marketing-ideas/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/marketing-ideas/SKILL.md",
+    "tags": ["strategy", "growth", "saas", "ideation", "tactics"]
   },
   {
     "name": "marketing-psychology",
     "description": "When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when the user mentions 'psychology,' 'mental models,' 'cognitive bias,' 'persuasion,' 'behavioral science,' 'why people buy,' 'decision-making,' or 'consumer behavior.' This skill provides 70+ mental models organized for marketing application.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/marketing-psychology/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/marketing-psychology/SKILL.md",
+    "tags": ["psychology", "persuasion", "mental-models", "behavioral-science", "cro"]
   },
   {
     "name": "onboarding-cro",
     "description": "When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value. Also use when the user mentions \"onboarding flow,\" \"activation rate,\" \"user activation,\" \"first-run experience,\" \"empty states,\" \"onboarding checklist,\" \"aha moment,\" or \"new user experience.\" For signup/registration optimization, see signup-flow-cro. For ongoing email sequences, see email-sequence.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/onboarding-cro/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/onboarding-cro/SKILL.md",
+    "tags": ["cro", "onboarding", "activation", "ux", "saas"]
   },
   {
     "name": "page-cro",
-    "description": "When the user wants to optimize, improve, or increase conversions on any marketing page \u2014 including homepage, landing pages, pricing pages, feature pages, or blog posts. Also use when the user says \"CRO,\" \"conversion rate optimization,\" \"this page isn't converting,\" \"improve conversions,\" or \"why isn't this page working.\" For signup/registration flows, see signup-flow-cro. For post-signup activation, see onboarding-cro. For forms outside of signup, see form-cro. For popups/modals, see popup-cro.",
+    "description": "When the user wants to optimize, improve, or increase conversions on any marketing page — including homepage, landing pages, pricing pages, feature pages, or blog posts. Also use when the user says \"CRO,\" \"conversion rate optimization,\" \"this page isn't converting,\" \"improve conversions,\" or \"why isn't this page working.\" For signup/registration flows, see signup-flow-cro. For post-signup activation, see onboarding-cro. For forms outside of signup, see form-cro. For popups/modals, see popup-cro.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/page-cro/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/page-cro/SKILL.md",
+    "tags": ["cro", "landing-pages", "optimization", "conversions", "ux"]
   },
   {
     "name": "paid-ads",
     "description": "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' or 'audience targeting.' This skill covers campaign strategy, audience targeting, and optimization. For bulk ad creative generation and iteration, see ad-creative.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/paid-ads/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/paid-ads/SKILL.md",
+    "tags": ["paid-ads", "ppc", "google-ads", "meta-ads", "retargeting"]
   },
   {
     "name": "paywall-upgrade-cro",
-    "description": "When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or feature gates. Also use when the user mentions \"paywall,\" \"upgrade screen,\" \"upgrade modal,\" \"upsell,\" \"feature gate,\" \"convert free to paid,\" \"freemium conversion,\" \"trial expiration screen,\" \"limit reached screen,\" \"plan upgrade prompt,\" or \"in-app pricing.\" Distinct from public pricing pages (see page-cro) \u2014 this skill focuses on in-product upgrade moments where the user has already experienced value.",
+    "description": "When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or feature gates. Also use when the user mentions \"paywall,\" \"upgrade screen,\" \"upgrade modal,\" \"upsell,\" \"feature gate,\" \"convert free to paid,\" \"freemium conversion,\" \"trial expiration screen,\" \"limit reached screen,\" \"plan upgrade prompt,\" or \"in-app pricing.\" Distinct from public pricing pages (see page-cro) — this skill focuses on in-product upgrade moments where the user has already experienced value.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/paywall-upgrade-cro/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/paywall-upgrade-cro/SKILL.md",
+    "tags": ["cro", "pricing", "saas", "upsell", "freemium"]
   },
   {
     "name": "popup-cro",
     "description": "When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conversion purposes. Also use when the user mentions \"exit intent,\" \"popup conversions,\" \"modal optimization,\" \"lead capture popup,\" \"email popup,\" \"announcement banner,\" or \"overlay.\" For forms outside of popups, see form-cro. For general page conversion optimization, see page-cro.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/popup-cro/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/popup-cro/SKILL.md",
+    "tags": ["cro", "popups", "lead-generation", "email-marketing", "ux"]
   },
   {
     "name": "pricing-strategy",
     "description": "When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions 'pricing,' 'pricing tiers,' 'freemium,' 'free trial,' 'packaging,' 'price increase,' 'value metric,' 'Van Westendorp,' 'willingness to pay,' or 'monetization.' This skill covers pricing research, tier structure, and packaging strategy.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/pricing-strategy/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/pricing-strategy/SKILL.md",
+    "tags": ["pricing", "monetization", "saas", "strategy", "packaging"]
   },
   {
     "name": "product-marketing-context",
     "description": "When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'positioning,' or wants to avoid repeating foundational information across marketing tasks. Creates `.agents/product-marketing-context.md` that other marketing skills reference.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/product-marketing-context/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/product-marketing-context/SKILL.md",
+    "tags": ["positioning", "context", "setup", "messaging", "strategy"]
   },
   {
     "name": "programmatic-seo",
     "description": "When the user wants to create SEO-driven pages at scale using templates and data. Also use when the user mentions \"programmatic SEO,\" \"template pages,\" \"pages at scale,\" \"directory pages,\" \"location pages,\" \"[keyword] + [city] pages,\" \"comparison pages,\" \"integration pages,\" or \"building many pages for SEO.\" For auditing existing SEO issues, see seo-audit.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/programmatic-seo/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/programmatic-seo/SKILL.md",
+    "tags": ["seo", "programmatic-seo", "scale", "templates", "landing-pages"]
   },
   {
     "name": "referral-program",
     "description": "When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-of-mouth strategy. Also use when the user mentions 'referral,' 'affiliate,' 'ambassador,' 'word of mouth,' 'viral loop,' 'refer a friend,' or 'partner program.' This skill covers program design, incentive structure, and growth optimization.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/referral-program/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/referral-program/SKILL.md",
+    "tags": ["growth", "referral", "affiliate", "viral", "partnerships"]
   },
   {
     "name": "revops",
     "description": "When the user wants help with revenue operations, lead lifecycle management, or marketing-to-sales handoff processes. Also use when the user mentions 'RevOps,' 'revenue operations,' 'lead scoring,' 'lead routing,' 'MQL,' 'SQL,' 'pipeline stages,' 'deal desk,' 'CRM automation,' 'marketing-to-sales handoff,' or 'data hygiene.' For cold outreach emails, see cold-email. For email drip campaigns, see email-sequence. For pricing decisions, see pricing-strategy.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/revops/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/revops/SKILL.md",
+    "tags": ["revops", "sales", "crm", "lead-scoring", "pipeline"]
   },
   {
     "name": "sales-enablement",
     "description": "When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or demo scripts. Also use when the user mentions 'sales deck,' 'pitch deck,' 'one-pager,' 'leave-behind,' 'objection handling,' 'ROI calculator,' 'demo script,' 'talk track,' 'sales playbook,' 'proposal template,' or 'buyer persona card.' For competitor battle cards and comparison pages, see competitor-alternatives. For marketing website copy, see copywriting. For cold outreach emails, see cold-email.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/sales-enablement/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/sales-enablement/SKILL.md",
+    "tags": ["sales", "collateral", "pitch-deck", "objection-handling", "b2b"]
   },
   {
     "name": "schema-markup",
     "description": "When the user wants to add, fix, or optimize schema markup and structured data on their site. Also use when the user mentions \"schema markup,\" \"structured data,\" \"JSON-LD,\" \"rich snippets,\" \"schema.org,\" \"FAQ schema,\" \"product schema,\" \"review schema,\" or \"breadcrumb schema.\" For broader SEO issues, see seo-audit.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/schema-markup/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/schema-markup/SKILL.md",
+    "tags": ["seo", "schema-markup", "structured-data", "rich-snippets", "technical-seo"]
   },
   {
     "name": "seo-audit",
     "description": "When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user mentions \"SEO audit,\" \"technical SEO,\" \"why am I not ranking,\" \"SEO issues,\" \"on-page SEO,\" \"meta tags review,\" or \"SEO health check.\" For building pages at scale to target keywords, see programmatic-seo. For adding structured data, see schema-markup.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/seo-audit/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/seo-audit/SKILL.md",
+    "tags": ["seo", "audit", "technical-seo", "on-page-seo", "diagnostics"]
   },
   {
     "name": "signup-flow-cro",
     "description": "When the user wants to optimize signup, registration, account creation, or trial activation flows. Also use when the user mentions \"signup conversions,\" \"registration friction,\" \"signup form optimization,\" \"free trial signup,\" \"reduce signup dropoff,\" or \"account creation flow.\" For post-signup onboarding, see onboarding-cro. For lead capture forms (not account creation), see form-cro.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/signup-flow-cro/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/signup-flow-cro/SKILL.md",
+    "tags": ["cro", "signup", "registration", "saas", "ux"]
   },
   {
     "name": "site-architecture",
-    "description": "When the user wants to plan, map, or restructure their website's page hierarchy, navigation, URL structure, or internal linking. Also use when the user mentions \"sitemap,\" \"site map,\" \"visual sitemap,\" \"site structure,\" \"page hierarchy,\" \"information architecture,\" \"IA,\" \"navigation design,\" \"URL structure,\" \"breadcrumbs,\" \"internal linking strategy,\" or \"website planning.\" NOT for XML sitemaps (that's technical SEO \u2014 see seo-audit). For SEO audits, see seo-audit. For structured data, see schema-markup.",
+    "description": "When the user wants to plan, map, or restructure their website's page hierarchy, navigation, URL structure, or internal linking. Also use when the user mentions \"sitemap,\" \"site map,\" \"visual sitemap,\" \"site structure,\" \"page hierarchy,\" \"information architecture,\" \"IA,\" \"navigation design,\" \"URL structure,\" \"breadcrumbs,\" \"internal linking strategy,\" or \"website planning.\" NOT for XML sitemaps (that's technical SEO — see seo-audit). For SEO audits, see seo-audit. For structured data, see schema-markup.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/site-architecture/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/site-architecture/SKILL.md",
+    "tags": ["seo", "site-architecture", "navigation", "internal-linking", "ux"]
   },
   {
     "name": "social-content",
     "description": "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms. Also use when the user mentions 'LinkedIn post,' 'Twitter thread,' 'social media,' 'content calendar,' 'social scheduling,' 'engagement,' or 'viral content.' This skill covers content creation, repurposing, and platform-specific strategies.",
     "plugin": "marketing-skills",
     "version": "1.1.0",
-    "path": "plugins/marketing-skills(by-conversion-factory)/skills/social-content/SKILL.md"
+    "path": "plugins/marketing-skills(by-conversion-factory)/skills/social-content/SKILL.md",
+    "tags": ["social-media", "content-creation", "linkedin", "twitter", "engagement"]
   },
   {
     "name": "ab-test-setup",
     "description": "When the user wants to plan, design, or implement an A/B test or experiment. Also use when the user mentions \"A/B test,\" \"split test,\" \"experiment,\" \"test this change,\" \"variant copy,\" \"multivariate test,\" or \"hypothesis.\" For tracking implementation, see analytics-tracking.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/ab-test-setup/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/ab-test-setup/SKILL.md",
+    "tags": ["cro", "ab-testing", "experimentation", "optimization"]
   },
   {
     "name": "analytics-tracking",
     "description": "When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when the user mentions \"set up tracking,\" \"GA4,\" \"Google Analytics,\" \"conversion tracking,\" \"event tracking,\" \"UTM parameters,\" \"tag manager,\" \"GTM,\" \"analytics implementation,\" or \"tracking plan.\" For A/B test measurement, see ab-test-setup.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/analytics-tracking/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/analytics-tracking/SKILL.md",
+    "tags": ["analytics", "google-analytics", "tracking", "gtm", "conversion-tracking"]
   },
   {
     "name": "competitor-alternatives",
     "description": "When the user wants to create competitor comparison or alternative pages for SEO and sales enablement. Also use when the user mentions 'alternative page,' 'vs page,' 'competitor comparison,' 'comparison page,' '[Product] vs [Product],' '[Product] alternative,' or 'competitive landing pages.' Covers four formats: singular alternative, plural alternatives, you vs competitor, and competitor vs competitor. Emphasizes deep research, modular content architecture, and varied section types beyond feature tables.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/competitor-alternatives/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/competitor-alternatives/SKILL.md",
+    "tags": ["competitor-tracking", "seo", "landing-pages", "sales", "comparison"]
   },
   {
     "name": "content-strategy",
     "description": "When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions \"content strategy,\" \"what should I write about,\" \"content ideas,\" \"blog strategy,\" \"topic clusters,\" or \"content planning.\" For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/content-strategy/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/content-strategy/SKILL.md",
+    "tags": ["content-marketing", "strategy", "planning", "topic-clusters", "blog-writing"]
   },
   {
     "name": "copy-editing",
     "description": "When the user wants to edit, review, or improve existing marketing copy. Also use when the user mentions 'edit this copy,' 'review my copy,' 'copy feedback,' 'proofread,' 'polish this,' 'make this better,' or 'copy sweep.' This skill provides a systematic approach to editing marketing copy through multiple focused passes.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/copy-editing/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/copy-editing/SKILL.md",
+    "tags": ["copywriting", "editing", "proofreading", "content-creation"]
   },
   {
     "name": "copywriting",
-    "description": "When the user wants to write, rewrite, or improve marketing copy for any page \u2014 including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also use when the user says \"write copy for,\" \"improve this copy,\" \"rewrite this page,\" \"marketing copy,\" \"headline help,\" or \"CTA copy.\" For email copy, see email-sequence. For popup copy, see popup-cro.",
+    "description": "When the user wants to write, rewrite, or improve marketing copy for any page — including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also use when the user says \"write copy for,\" \"improve this copy,\" \"rewrite this page,\" \"marketing copy,\" \"headline help,\" or \"CTA copy.\" For email copy, see email-sequence. For popup copy, see popup-cro.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/copywriting/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/copywriting/SKILL.md",
+    "tags": ["copywriting", "landing-pages", "content-creation", "cro", "headlines"]
   },
   {
     "name": "email-sequence",
     "description": "When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or lifecycle email program. Also use when the user mentions \"email sequence,\" \"drip campaign,\" \"nurture sequence,\" \"onboarding emails,\" \"welcome sequence,\" \"re-engagement emails,\" \"email automation,\" or \"lifecycle emails.\" For in-app onboarding, see onboarding-cro.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/email-sequence/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/email-sequence/SKILL.md",
+    "tags": ["email-marketing", "automation", "drip-campaigns", "lifecycle", "nurture"]
   },
   {
     "name": "form-cro",
-    "description": "When the user wants to optimize any form that is NOT signup/registration \u2014 including lead capture forms, contact forms, demo request forms, application forms, survey forms, or checkout forms. Also use when the user mentions \"form optimization,\" \"lead form conversions,\" \"form friction,\" \"form fields,\" \"form completion rate,\" or \"contact form.\" For signup/registration forms, see signup-flow-cro. For popups containing forms, see popup-cro.",
+    "description": "When the user wants to optimize any form that is NOT signup/registration — including lead capture forms, contact forms, demo request forms, application forms, survey forms, or checkout forms. Also use when the user mentions \"form optimization,\" \"lead form conversions,\" \"form friction,\" \"form fields,\" \"form completion rate,\" or \"contact form.\" For signup/registration forms, see signup-flow-cro. For popups containing forms, see popup-cro.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/form-cro/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/form-cro/SKILL.md",
+    "tags": ["cro", "forms", "lead-generation", "optimization", "ux"]
   },
   {
     "name": "free-tool-strategy",
-    "description": "When the user wants to plan, evaluate, or build a free tool for marketing purposes \u2014 lead generation, SEO value, or brand awareness. Also use when the user mentions \"engineering as marketing,\" \"free tool,\" \"marketing tool,\" \"calculator,\" \"generator,\" \"interactive tool,\" \"lead gen tool,\" \"build a tool for leads,\" or \"free resource.\" This skill bridges engineering and marketing \u2014 useful for founders and technical marketers.",
+    "description": "When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation, SEO value, or brand awareness. Also use when the user mentions \"engineering as marketing,\" \"free tool,\" \"marketing tool,\" \"calculator,\" \"generator,\" \"interactive tool,\" \"lead gen tool,\" \"build a tool for leads,\" or \"free resource.\" This skill bridges engineering and marketing — useful for founders and technical marketers.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/free-tool-strategy/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/free-tool-strategy/SKILL.md",
+    "tags": ["lead-generation", "engineering-as-marketing", "tools", "seo", "growth"]
   },
   {
     "name": "growth-lead",
-    "description": "Your senior growth advisor who gives direct, data-driven guidance on sales, marketing, and growth strategy. No fluff, no hedging\u2014just clear direction from someone who's scaled brands and knows what actually moves the needle. Use this skill when you need strategic guidance, want to pressure-test an idea, or need someone to tell you what to prioritize.",
+    "description": "Your senior growth advisor who gives direct, data-driven guidance on sales, marketing, and growth strategy. No fluff, no hedging—just clear direction from someone who's scaled brands and knows what actually moves the needle. Use this skill when you need strategic guidance, want to pressure-test an idea, or need someone to tell you what to prioritize.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/growth-lead-SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/growth-lead-SKILL.md",
+    "tags": ["strategy", "growth", "advisor", "sales", "prioritization"]
   },
   {
     "name": "launch-strategy",
     "description": "When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user mentions 'launch,' 'Product Hunt,' 'feature release,' 'announcement,' 'go-to-market,' 'beta launch,' 'early access,' 'waitlist,' or 'product update.' This skill covers phased launches, channel strategy, and ongoing launch momentum.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/launch-strategy/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/launch-strategy/SKILL.md",
+    "tags": ["product-launch", "go-to-market", "campaigns", "product-hunt", "announcements"]
   },
   {
     "name": "marketing-ideas",
     "description": "When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. Also use when the user asks for 'marketing ideas,' 'growth ideas,' 'how to market,' 'marketing strategies,' 'marketing tactics,' 'ways to promote,' or 'ideas to grow.' This skill provides 139 proven marketing approaches organized by category.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/marketing-ideas/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/marketing-ideas/SKILL.md",
+    "tags": ["strategy", "growth", "saas", "ideation", "tactics"]
   },
   {
     "name": "marketing-psychology",
     "description": "When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when the user mentions 'psychology,' 'mental models,' 'cognitive bias,' 'persuasion,' 'behavioral science,' 'why people buy,' 'decision-making,' or 'consumer behavior.' This skill provides 70+ mental models organized for marketing application.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/marketing-psychology/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/marketing-psychology/SKILL.md",
+    "tags": ["psychology", "persuasion", "mental-models", "behavioral-science", "cro"]
   },
   {
     "name": "onboarding-cro",
     "description": "When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value. Also use when the user mentions \"onboarding flow,\" \"activation rate,\" \"user activation,\" \"first-run experience,\" \"empty states,\" \"onboarding checklist,\" \"aha moment,\" or \"new user experience.\" For signup/registration optimization, see signup-flow-cro. For ongoing email sequences, see email-sequence.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/onboarding-cro/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/onboarding-cro/SKILL.md",
+    "tags": ["cro", "onboarding", "activation", "ux", "saas"]
   },
   {
     "name": "page-cro",
-    "description": "When the user wants to optimize, improve, or increase conversions on any marketing page \u2014 including homepage, landing pages, pricing pages, feature pages, or blog posts. Also use when the user says \"CRO,\" \"conversion rate optimization,\" \"this page isn't converting,\" \"improve conversions,\" or \"why isn't this page working.\" For signup/registration flows, see signup-flow-cro. For post-signup activation, see onboarding-cro. For forms outside of signup, see form-cro. For popups/modals, see popup-cro.",
+    "description": "When the user wants to optimize, improve, or increase conversions on any marketing page — including homepage, landing pages, pricing pages, feature pages, or blog posts. Also use when the user says \"CRO,\" \"conversion rate optimization,\" \"this page isn't converting,\" \"improve conversions,\" or \"why isn't this page working.\" For signup/registration flows, see signup-flow-cro. For post-signup activation, see onboarding-cro. For forms outside of signup, see form-cro. For popups/modals, see popup-cro.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/page-cro/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/page-cro/SKILL.md",
+    "tags": ["cro", "landing-pages", "optimization", "conversions", "ux"]
   },
   {
     "name": "paid-ads",
     "description": "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ad copy,' 'ad creative,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' or 'audience targeting.' This skill covers campaign strategy, ad creation, audience targeting, and optimization.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/paid-ads/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/paid-ads/SKILL.md",
+    "tags": ["paid-ads", "ppc", "google-ads", "meta-ads", "retargeting", "ad-creative"]
   },
   {
     "name": "paywall-upgrade-cro",
-    "description": "When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or feature gates. Also use when the user mentions \"paywall,\" \"upgrade screen,\" \"upgrade modal,\" \"upsell,\" \"feature gate,\" \"convert free to paid,\" \"freemium conversion,\" \"trial expiration screen,\" \"limit reached screen,\" \"plan upgrade prompt,\" or \"in-app pricing.\" Distinct from public pricing pages (see page-cro) \u2014 this skill focuses on in-product upgrade moments where the user has already experienced value.",
+    "description": "When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or feature gates. Also use when the user mentions \"paywall,\" \"upgrade screen,\" \"upgrade modal,\" \"upsell,\" \"feature gate,\" \"convert free to paid,\" \"freemium conversion,\" \"trial expiration screen,\" \"limit reached screen,\" \"plan upgrade prompt,\" or \"in-app pricing.\" Distinct from public pricing pages (see page-cro) — this skill focuses on in-product upgrade moments where the user has already experienced value.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/paywall-upgrade-cro/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/paywall-upgrade-cro/SKILL.md",
+    "tags": ["cro", "pricing", "saas", "upsell", "freemium"]
   },
   {
     "name": "popup-cro",
     "description": "When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conversion purposes. Also use when the user mentions \"exit intent,\" \"popup conversions,\" \"modal optimization,\" \"lead capture popup,\" \"email popup,\" \"announcement banner,\" or \"overlay.\" For forms outside of popups, see form-cro. For general page conversion optimization, see page-cro.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/popup-cro/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/popup-cro/SKILL.md",
+    "tags": ["cro", "popups", "lead-generation", "email-marketing", "ux"]
   },
   {
     "name": "pricing-strategy",
     "description": "When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions 'pricing,' 'pricing tiers,' 'freemium,' 'free trial,' 'packaging,' 'price increase,' 'value metric,' 'Van Westendorp,' 'willingness to pay,' or 'monetization.' This skill covers pricing research, tier structure, and packaging strategy.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/pricing-strategy/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/pricing-strategy/SKILL.md",
+    "tags": ["pricing", "monetization", "saas", "strategy", "packaging"]
   },
   {
     "name": "product-marketing-context",
     "description": "When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'positioning,' or wants to avoid repeating foundational information across marketing tasks. Creates `.claude/product-marketing-context.md` that other marketing skills reference.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/product-marketing-context/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/product-marketing-context/SKILL.md",
+    "tags": ["positioning", "context", "setup", "messaging", "strategy"]
   },
   {
     "name": "programmatic-seo",
     "description": "When the user wants to create SEO-driven pages at scale using templates and data. Also use when the user mentions \"programmatic SEO,\" \"template pages,\" \"pages at scale,\" \"directory pages,\" \"location pages,\" \"[keyword] + [city] pages,\" \"comparison pages,\" \"integration pages,\" or \"building many pages for SEO.\" For auditing existing SEO issues, see seo-audit.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/programmatic-seo/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/programmatic-seo/SKILL.md",
+    "tags": ["seo", "programmatic-seo", "scale", "templates", "landing-pages"]
   },
   {
     "name": "referral-program",
     "description": "When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-of-mouth strategy. Also use when the user mentions 'referral,' 'affiliate,' 'ambassador,' 'word of mouth,' 'viral loop,' 'refer a friend,' or 'partner program.' This skill covers program design, incentive structure, and growth optimization.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/referral-program/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/referral-program/SKILL.md",
+    "tags": ["growth", "referral", "affiliate", "viral", "partnerships"]
   },
   {
     "name": "schema-markup",
     "description": "When the user wants to add, fix, or optimize schema markup and structured data on their site. Also use when the user mentions \"schema markup,\" \"structured data,\" \"JSON-LD,\" \"rich snippets,\" \"schema.org,\" \"FAQ schema,\" \"product schema,\" \"review schema,\" or \"breadcrumb schema.\" For broader SEO issues, see seo-audit.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/schema-markup/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/schema-markup/SKILL.md",
+    "tags": ["seo", "schema-markup", "structured-data", "rich-snippets", "technical-seo"]
   },
   {
     "name": "seo-audit",
     "description": "When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user mentions \"SEO audit,\" \"technical SEO,\" \"why am I not ranking,\" \"SEO issues,\" \"on-page SEO,\" \"meta tags review,\" or \"SEO health check.\" For building pages at scale to target keywords, see programmatic-seo. For adding structured data, see schema-markup.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/seo-audit/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/seo-audit/SKILL.md",
+    "tags": ["seo", "audit", "technical-seo", "on-page-seo", "diagnostics"]
   },
   {
     "name": "setup-seo-machine",
     "description": "Interactive setup wizard for configuring SEO Machine for your business. This skill guides you through all necessary configuration steps to get the most out of the SEO content creation system.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/setup-seo-machine/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/setup-seo-machine/SKILL.md",
+    "tags": ["setup", "configuration", "wizard", "seo"]
   },
   {
     "name": "signup-flow-cro",
     "description": "When the user wants to optimize signup, registration, account creation, or trial activation flows. Also use when the user mentions \"signup conversions,\" \"registration friction,\" \"signup form optimization,\" \"free trial signup,\" \"reduce signup dropoff,\" or \"account creation flow.\" For post-signup onboarding, see onboarding-cro. For lead capture forms (not account creation), see form-cro.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/signup-flow-cro/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/signup-flow-cro/SKILL.md",
+    "tags": ["cro", "signup", "registration", "saas", "ux"]
   },
   {
     "name": "social-content",
     "description": "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms. Also use when the user mentions 'LinkedIn post,' 'Twitter thread,' 'social media,' 'content calendar,' 'social scheduling,' 'engagement,' or 'viral content.' This skill covers content creation, repurposing, and platform-specific strategies.",
     "plugin": "seo-machine",
     "version": "1.0.0",
-    "path": "plugins/seo-machine(by-craig-hewitt)/skills/social-content/SKILL.md"
+    "path": "plugins/seo-machine(by-craig-hewitt)/skills/social-content/SKILL.md",
+    "tags": ["social-media", "content-creation", "linkedin", "twitter", "engagement"]
   }
 ]
