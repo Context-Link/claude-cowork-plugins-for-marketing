@@ -1,0 +1,13 @@
+{
+	"name": "claude-cowork-plugins-for-marketing",
+	"owner": {
+		"name": "Context Link"
+	},
+	"plugins": [
+		{
+			"name": "Context Link",
+			"source": "./plugins/context-link(by-context-link)",
+			"description": "Context Link gives Claude reliable business context and a shared workspace. Connect your docs (Notion, Google Docs, websites) once, then fetch relevant snippets by meaning and save/update canonical notes your team can reuse."
+		}
+	]
+}
