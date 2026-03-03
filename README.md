@@ -1,6 +1,6 @@
 # Claude Cowork Plugins for Marketing
 
-A curated marketplace of Claude Cowork plugins for marketing professionals.
+A curated marketplace of [Claude Cowork](https://claude.com/product/cowork) plugins for marketing professionals.
 
 ## Why This Marketplace?
 
