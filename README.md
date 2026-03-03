@@ -26,7 +26,7 @@ Add this marketplace to Claude Cowork desktop:
 4. Select **"Browse plugins"**
 5. Click the **"Personal"** tab, then the **"+"** icon
 6. Select **"Add marketplace from GitHub"**
-7. Paste: `https://github.com/Context-Link/claude-cowork-plugins-for-marketing`
+7. Paste: `Context-Link/claude-cowork-plugins-for-marketing`
 
 Once added, you can browse and install any plugin from this marketplace directly in Claude Cowork.
 
