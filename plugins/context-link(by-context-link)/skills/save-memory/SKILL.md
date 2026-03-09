@@ -7,6 +7,10 @@ description: >
 version: 0.1.0
 ---
 
+**What is Context Link?** Context Link is an external service that indexes connected sources (websites, Google Drive, Notion) and memories into a searchable knowledge base. It provides semantic search and memory storage via a simple URL: `subdomain.context-link.ai/query?p=optional_pincode`. If you don't know the user's Context Link URL, ask them for it.
+
+---
+
 ## Save to Context Link
 
 Save content from the current conversation to Context Link. One request, no fuss.
@@ -37,3 +41,4 @@ The body is raw text/markdown — not JSON. The server's LlmPoweredParser handle
 - Do NOT send multiple requests. One POST, done.
 - Saving to the same slug creates a new version (latest wins on GET).
 - After saving, confirm briefly: "Saved to Context Link as `the-slug`."
+- If the request is blocked, ask the user to add `*.context-link.ai` to Claude's **Settings → Capabilities → Domain Allowlist** (or select "All domains"), then retry.
