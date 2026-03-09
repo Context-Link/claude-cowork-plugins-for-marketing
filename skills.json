@@ -24,6 +24,38 @@
     "tags": ["knowledge-base", "memory", "update", "documentation"]
   },
   {
+    "name": "get-seo-context",
+    "description": "Retrieve or create SEO context (guidelines, target keywords, competitor analysis) from Context Link. Use when the user mentions \"SEO context\", \"SEO guidelines\", \"target keywords\", \"competitor analysis\", or wants to establish their SEO strategy foundation.",
+    "plugin": "context-link",
+    "version": "0.1.0",
+    "path": "plugins/context-link(by-context-link)/skills/get-seo-context/SKILL.md",
+    "tags": ["seo", "knowledge-base", "context", "keywords", "competitor-analysis"]
+  },
+  {
+    "name": "get-seo-writing-context",
+    "description": "Retrieve or create SEO writing context (brand voice, style guide, writing examples) from Context Link. Use when the user mentions \"brand voice\", \"style guide\", \"writing examples\", or wants to establish their content writing standards.",
+    "plugin": "context-link",
+    "version": "0.1.0",
+    "path": "plugins/context-link(by-context-link)/skills/get-seo-writing-context/SKILL.md",
+    "tags": ["seo", "knowledge-base", "brand-voice", "style-guide", "content-creation"]
+  },
+  {
+    "name": "save-seo-context",
+    "description": "Save or update SEO context (guidelines, target keywords, competitor analysis) to Context Link. Use when the user says \"save SEO context\", \"update SEO guidelines\", \"save keywords\", or wants to persist SEO-related information.",
+    "plugin": "context-link",
+    "version": "0.1.0",
+    "path": "plugins/context-link(by-context-link)/skills/save-seo-context/SKILL.md",
+    "tags": ["seo", "knowledge-base", "memory", "keywords", "competitor-analysis"]
+  },
+  {
+    "name": "save-seo-writing-context",
+    "description": "Save or update SEO writing context (brand voice, style guide, writing examples) to Context Link. Use when the user says \"save brand voice\", \"update style guide\", \"save writing examples\", or wants to persist writing-related information.",
+    "plugin": "context-link",
+    "version": "0.1.0",
+    "path": "plugins/context-link(by-context-link)/skills/save-seo-writing-context/SKILL.md",
+    "tags": ["seo", "knowledge-base", "brand-voice", "style-guide", "content-creation"]
+  },
+  {
     "name": "backlink-analysis",
     "description": "DataForSEO backlink analysis: backlink profiles, referring domains, anchors, domain authority",
     "plugin": "dataforseo",
