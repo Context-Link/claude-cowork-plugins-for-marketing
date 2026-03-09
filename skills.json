@@ -6,8 +6,7 @@
     "version": "0.1.0",
     "path": "plugins/context-link(by-context-link)/skills/get-context/SKILL.md",
     "tags": ["knowledge-base", "context", "retrieval", "documentation"],
-    "chat_compatible": false,
-    "chat_compatible_reason": "Requires HTTP requests via curl/bash"
+    "chat_compatible": true
   },
   {
     "name": "save-memory",
@@ -16,8 +15,7 @@
     "version": "0.1.0",
     "path": "plugins/context-link(by-context-link)/skills/save-memory/SKILL.md",
     "tags": ["knowledge-base", "memory", "storage", "documentation"],
-    "chat_compatible": false,
-    "chat_compatible_reason": "Requires HTTP POST requests via curl/bash"
+    "chat_compatible": true
   },
   {
     "name": "update-memory",
@@ -26,8 +24,7 @@
     "version": "0.1.0",
     "path": "plugins/context-link(by-context-link)/skills/update-memory/SKILL.md",
     "tags": ["knowledge-base", "memory", "update", "documentation"],
-    "chat_compatible": false,
-    "chat_compatible_reason": "Requires HTTP requests via curl/bash"
+    "chat_compatible": true
   },
   {
     "name": "get-seo-context",
@@ -36,8 +33,7 @@
     "version": "0.1.0",
     "path": "plugins/context-link(by-context-link)/skills/get-seo-context/SKILL.md",
     "tags": ["seo", "knowledge-base", "context", "keywords", "competitor-analysis"],
-    "chat_compatible": false,
-    "chat_compatible_reason": "Requires HTTP requests via curl/bash"
+    "chat_compatible": true
   },
   {
     "name": "get-seo-writing-context",
@@ -46,8 +42,7 @@
     "version": "0.1.0",
     "path": "plugins/context-link(by-context-link)/skills/get-seo-writing-context/SKILL.md",
     "tags": ["seo", "knowledge-base", "brand-voice", "style-guide", "content-creation"],
-    "chat_compatible": false,
-    "chat_compatible_reason": "Requires HTTP requests via curl/bash"
+    "chat_compatible": true
   },
   {
     "name": "save-seo-context",
@@ -56,8 +51,7 @@
     "version": "0.1.0",
     "path": "plugins/context-link(by-context-link)/skills/save-seo-context/SKILL.md",
     "tags": ["seo", "knowledge-base", "memory", "keywords", "competitor-analysis"],
-    "chat_compatible": false,
-    "chat_compatible_reason": "Requires HTTP POST requests via curl/bash"
+    "chat_compatible": true
   },
   {
     "name": "save-seo-writing-context",
@@ -66,8 +60,7 @@
     "version": "0.1.0",
     "path": "plugins/context-link(by-context-link)/skills/save-seo-writing-context/SKILL.md",
     "tags": ["seo", "knowledge-base", "brand-voice", "style-guide", "content-creation"],
-    "chat_compatible": false,
-    "chat_compatible_reason": "Requires HTTP POST requests via curl/bash"
+    "chat_compatible": true
   },
   {
     "name": "backlink-analysis",
