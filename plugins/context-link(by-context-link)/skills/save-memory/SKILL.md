@@ -21,7 +21,7 @@ Save content from the current conversation to Context Link. One request, no fuss
 
 2. **Summarize the content.** Distill the conversation into a concise, reusable reference document in markdown. Focus on what's useful to retrieve later — strip conversational back-and-forth, keep decisions, specs, and key details.
 
-3. **Print this message:** `🔗 Saving memory to Context Link → {SLUG}`
+3. **Print this message:** `🔗 Saving memory to Context Link → {SLUG}` — Never print the actual Context Link URL, as it contains a private 'pin' or 'p' URL param.
 
 4. **POST it.** Take the URL below and replace the path placeholder (`TOPIC_HERE` or `{SLUG}` — whichever is present) with the chosen slug (lowercase, use-dashes-for-spaces).
 

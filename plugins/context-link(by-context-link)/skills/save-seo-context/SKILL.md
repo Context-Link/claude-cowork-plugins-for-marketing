@@ -22,7 +22,7 @@ Save or update SEO context to Context Link for later retrieval. Use this to pers
 
 **Workflow:**
 
-1. **Print this message:** `🔗 Saving SEO context to Context Link → {NAMESPACE}`
+1. **Print this message:** `🔗 Saving SEO context to Context Link → {NAMESPACE}` — Never print the actual Context Link URL, as it contains a private 'pin' or 'p' URL param.
 
 2. **Determine which context to save.** Ask the user if not clear:
    - "guidelines" -> `seo_memory_guidelines`

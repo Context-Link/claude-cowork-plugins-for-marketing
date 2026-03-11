@@ -22,7 +22,7 @@ Retrieve SEO context for content creation. Checks Context Link memory first, the
 
 **Workflow:**
 
-1. **Print this message:** `🔗 Retrieving SEO context from Context Link`
+1. **Print this message:** `🔗 Retrieving SEO context from Context Link` — Never print the actual Context Link URL, as it contains a private 'pin' or 'p' URL param.
 
 2. **Fetch existing context.** Try to GET each namespace. Replace `~~context link url~~` with the user's Context Link URL and append the namespace as the path:
 

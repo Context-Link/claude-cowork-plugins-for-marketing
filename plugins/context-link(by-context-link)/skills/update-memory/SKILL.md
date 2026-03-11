@@ -17,7 +17,7 @@ Retrieve existing content, merge in new information, and save it back. Two reque
 
 **Workflow:**
 
-1. **Print this message:** `🔗 Updating memory on Context Link → {SLUG}`
+1. **Print this message:** `🔗 Updating memory on Context Link → {SLUG}` — Never print the actual Context Link URL, as it contains a private 'pin' or 'p' URL param.
 
 2. **GET the existing content.** Take the URL below and replace the path placeholder (`TOPIC_HERE` or `{SLUG}` — whichever is present) with the slug.
 

@@ -19,7 +19,7 @@ Retrieve content from the user's Context Link knowledge base.
 
 **Workflow:**
 
-1. **Print this message:** `🔗 Retrieving context on {TOPIC} from Context Link`
+1. **Print this message:** `🔗 Retrieving context on {TOPIC} from Context Link` — Never print the actual Context Link URL, as it contains a private 'pin' or 'p' URL param.
 
 2. **Determine the topic.** Use the phrase the user requested, or infer the general topic from conversation context. Lowercase it, replace spaces with dashes.
 
