@@ -6,7 +6,7 @@
 	},
 	"metadata": {
 		"description": "A curated marketplace of high-quality marketing plugins for Claude Code. Features tools for knowledge management, SEO, content creation, campaign planning, analytics, and conversion optimization.",
-		"version": "1.0.1"
+		"version": "1.0.2"
 	},
 	"plugins": [
 		{
