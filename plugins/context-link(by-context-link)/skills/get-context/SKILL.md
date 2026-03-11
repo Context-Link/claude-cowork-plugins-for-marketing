@@ -19,20 +19,22 @@ Retrieve content from the user's Context Link knowledge base.
 
 **Workflow:**
 
-1. **Determine the topic.** Use the phrase the user requested, or infer the general topic from conversation context. Lowercase it, replace spaces with dashes.
+1. **Print this message:** `🔗 Retrieving context on {TOPIC} from Context Link`
 
-2. **Send a GET request.** Take the URL below and replace the path placeholder (`TOPIC_HERE` or `{SLUG}` — whichever is present) with the topic slug (lowercase, dashes-for-spaces).
+2. **Determine the topic.** Use the phrase the user requested, or infer the general topic from conversation context. Lowercase it, replace spaces with dashes.
+
+3. **Send a GET request.** Take the URL below and replace the path placeholder (`TOPIC_HERE` or `{SLUG}` — whichever is present) with the topic slug (lowercase, dashes-for-spaces).
 
 ```bash
 curl -s "~~context link url~~"
 ```
 
-3. **Handle the response.**
+4. **Handle the response.**
    - The response is HTML. Extract the text content from inside the `<body>` tag — ignore HTML boilerplate.
    - Use the returned content as the primary source material for answering the user's question.
    - Supplement with external sources only if the Context Link data is insufficient.
 
-4. **If the request fails or returns empty**, report the failure explicitly before continuing. Do not silently skip retrieval.
+5. **If the request fails or returns empty**, report the failure explicitly before continuing. Do not silently skip retrieval.
 
 **Rules:**
 - Always attempt retrieval before answering questions about internal/company knowledge.

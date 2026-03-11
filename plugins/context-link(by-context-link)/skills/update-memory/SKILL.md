@@ -17,7 +17,9 @@ Retrieve existing content, merge in new information, and save it back. Two reque
 
 **Workflow:**
 
-1. **GET the existing content.** Take the URL below and replace the path placeholder (`TOPIC_HERE` or `{SLUG}` — whichever is present) with the slug.
+1. **Print this message:** `🔗 Updating memory on Context Link → {SLUG}`
+
+2. **GET the existing content.** Take the URL below and replace the path placeholder (`TOPIC_HERE` or `{SLUG}` — whichever is present) with the slug.
 
 ```bash
 curl -s "~~context link url~~"
@@ -25,9 +27,9 @@ curl -s "~~context link url~~"
 
 Returns HTML. Extract the text content from inside the `<body>` tag — ignore HTML boilerplate.
 
-2. **Merge and rewrite.** Combine existing content with new information from the conversation. Deduplicate, reorganize if needed, keep it concise. Output as clean markdown.
+3. **Merge and rewrite.** Combine existing content with new information from the conversation. Deduplicate, reorganize if needed, keep it concise. Output as clean markdown.
 
-3. **POST the updated content back to the same slug.** Use the same URL (with the placeholder replaced by the same slug).
+4. **POST the updated content back to the same slug.** Use the same URL (with the placeholder replaced by the same slug).
 
 ```bash
 curl -s -X POST "~~context link url~~" \

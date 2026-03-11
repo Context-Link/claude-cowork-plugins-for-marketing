@@ -22,12 +22,14 @@ Save or update writing context to Context Link for later retrieval. Use this to 
 
 **Workflow:**
 
-1. **Determine which context to save.** Ask the user if not clear:
+1. **Print this message:** `🔗 Saving SEO writing context to Context Link → {NAMESPACE}`
+
+2. **Determine which context to save.** Ask the user if not clear:
    - "brand voice" or "voice" -> `seo_memory_brand_voice`
    - "style guide" or "style" -> `seo_memory_style_guide`
    - "examples" or "writing examples" -> `seo_memory_writing_examples`
 
-2. **If updating existing content**, first GET the current version. Replace `~~context link url~~` with the user's Context Link URL:
+3. **If updating existing content**, first GET the current version. Replace `~~context link url~~` with the user's Context Link URL:
 
 ```bash
 curl -s "~~context link url~~/{NAMESPACE}"
@@ -35,7 +37,7 @@ curl -s "~~context link url~~/{NAMESPACE}"
 
 Then merge changes with existing content.
 
-3. **Compile the content.** Format as clean markdown with clear headings. Structure should follow these patterns:
+4. **Compile the content.** Format as clean markdown with clear headings. Structure should follow these patterns:
 
 **For seo_memory_brand_voice:**
 ```markdown
@@ -140,7 +142,7 @@ These articles represent [COMPANY]'s best work and ideal voice.
 2. [Mistake]
 ```
 
-4. **POST to save:**
+5. **POST to save:**
 
 ```bash
 curl -s -X POST "~~context link url~~/{NAMESPACE}" \

@@ -22,7 +22,9 @@ Retrieve SEO context for content creation. Checks Context Link memory first, the
 
 **Workflow:**
 
-1. **Fetch existing context.** Try to GET each namespace. Replace `~~context link url~~` with the user's Context Link URL and append the namespace as the path:
+1. **Print this message:** `🔗 Retrieving SEO context from Context Link`
+
+2. **Fetch existing context.** Try to GET each namespace. Replace `~~context link url~~` with the user's Context Link URL and append the namespace as the path:
 
 ```bash
 curl -s "~~context link url~~/seo_memory_guidelines"
@@ -30,9 +32,9 @@ curl -s "~~context link url~~/seo_memory_target_keywords"
 curl -s "~~context link url~~/seo_memory_competitor_analysis"
 ```
 
-2. **Check what exists.** If a request returns content (not 404), use it. If any namespace is missing, run the wizard for that context type.
+3. **Check what exists.** If a request returns content (not 404), use it. If any namespace is missing, run the wizard for that context type.
 
-3. **Run wizard for missing contexts.** Ask questions step-by-step to build the context. One context at a time.
+4. **Run wizard for missing contexts.** Ask questions step-by-step to build the context. One context at a time.
 
 ---
 

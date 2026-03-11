@@ -22,12 +22,14 @@ Save or update SEO context to Context Link for later retrieval. Use this to pers
 
 **Workflow:**
 
-1. **Determine which context to save.** Ask the user if not clear:
+1. **Print this message:** `🔗 Saving SEO context to Context Link → {NAMESPACE}`
+
+2. **Determine which context to save.** Ask the user if not clear:
    - "guidelines" -> `seo_memory_guidelines`
    - "keywords" or "target keywords" -> `seo_memory_target_keywords`
    - "competitors" or "competitor analysis" -> `seo_memory_competitor_analysis`
 
-2. **If updating existing content**, first GET the current version. Replace `~~context link url~~` with the user's Context Link URL:
+3. **If updating existing content**, first GET the current version. Replace `~~context link url~~` with the user's Context Link URL:
 
 ```bash
 curl -s "~~context link url~~/{NAMESPACE}"
@@ -35,7 +37,7 @@ curl -s "~~context link url~~/{NAMESPACE}"
 
 Then merge changes with existing content.
 
-3. **Compile the content.** Format as clean markdown with clear headings. Structure should follow these patterns:
+4. **Compile the content.** Format as clean markdown with clear headings. Structure should follow these patterns:
 
 **For seo_memory_guidelines:**
 ```markdown
@@ -111,7 +113,7 @@ Then merge changes with existing content.
 - [opportunity 2]
 ```
 
-4. **POST to save:**
+5. **POST to save:**
 
 ```bash
 curl -s -X POST "~~context link url~~/{NAMESPACE}" \
