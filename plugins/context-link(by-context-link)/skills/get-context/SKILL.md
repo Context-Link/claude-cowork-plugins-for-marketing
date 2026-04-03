@@ -4,7 +4,7 @@ description: >
   Retrieve internal knowledge via Context Link when the user references company knowledge
   or says "get context", "use context link", "check context link", or asks about internal
   information that may be stored in their knowledge base.
-version: 0.1.0
+version: 0.2.0
 ---
 
 **What is Context Link?** Context Link is an external service that indexes connected sources (websites, Google Drive, Notion) and memories into a searchable knowledge base. It provides semantic search via a simple URL: `subdomain.context-link.ai/query?p=optional_pincode`. If you don't know the user's Context Link URL, ask them for it.
@@ -28,6 +28,8 @@ Retrieve content from the user's Context Link knowledge base.
 ```bash
 curl -s "~~context link url~~"
 ```
+
+   - Optionally append `&mode=MODE_NAME` (or `?mode=MODE_NAME` if no pin is set) to weight results toward a specific mode (e.g. `customer-support`). Modes are configured by the user on their Connections page.
 
 4. **Handle the response.**
    - The response is HTML. Extract the text content from inside the `<body>` tag — ignore HTML boilerplate.
