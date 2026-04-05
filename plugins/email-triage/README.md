@@ -14,7 +14,8 @@ This plugin relies on [Context Link](https://www.context-link.ai) to semanticall
 
 If the plugin isn't listed in the marketplace, you can add the GitHub marketplace first:
 
-1. In Cowork, go to **Customize → Browse plugins**
+1. In Cowork, go to **Customize → Personal plugins +**
+2. **+ create plugin** -> **Add marketplace**
 2. Add the marketplace repo: `Context-Link/claude-cowork-plugins-for-marketing`
 3. Then install **email-triage** from the plugin list
 
