@@ -1,7 +1,7 @@
 ---
 description: Paste a customer email and get a context-aware draft reply
 allowed-tools: Bash, WebFetch
-argument-hint: "[paste email or describe the issue] [--output apple-mail|desktop|chat]"
+argument-hint: "[paste email or describe the issue]"
 ---
 
 # Draft Reply
@@ -12,10 +12,8 @@ Draft a reply to a customer support email using the draft-email-response skill.
 
 Use the skill instructions from `${CLAUDE_PLUGIN_ROOT}/skills/draft-email-response/SKILL.md` to generate the reply.
 
-## Arguments
-
-- `--output` → pass as `output` (`apple-mail`, `desktop`, or `chat`). Defaults to `chat`.
-- Everything else in `$ARGUMENTS` is treated as the email content or issue description.
+The reply is always displayed in chat. For bulk delivery to Apple Mail or Desktop
+files, use `/triage-emails` instead.
 
 ## Input
 

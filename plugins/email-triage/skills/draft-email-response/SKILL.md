@@ -16,9 +16,6 @@ args:
   body:
     description: "The email body content to reply to"
     required: false
-  output:
-    description: "Where to put the draft reply: 'apple-mail', 'desktop', or 'chat'. Defaults to 'chat' when used standalone."
-    required: false
 ---
 
 # Draft Email Response Skill
@@ -113,19 +110,8 @@ Write like a real support person — warm, clear, practical, concise.
 
 ## Output format
 
-### When called by another skill (e.g. triage-email)
-
-Return just the draft reply text — the calling skill handles delivery via its own
-`output` arg.
-
-### When used standalone
-
-Check the `output` arg to determine where to deliver the draft. If not provided,
-default to `chat`.
-
-#### Output: `chat` (default)
-
-Display the draft in the conversation:
+Always display the draft in chat. This skill does not handle delivery to external
+services — that is the responsibility of the calling skill (e.g. triage-email).
 
 ```
 **Draft reply**
@@ -141,29 +127,3 @@ Subject: Re: {subject}
 ```
 
 Only include Sources if you actually used retrieved context.
-
-#### Output: `apple-mail`
-
-Use the Apple Mail MCP to create a draft in Mail.app. Check for tools via:
-
-```
-ToolSearch(query: "+apple mail", max_results: 10)
-```
-
-If found, create a draft with **to**, **subject**, and **body** fields.
-
-If not found, tell the user:
-
-> The Apple Mail MCP isn't connected. You can set it up from:
-> [github.com/Context-Link/apple-mail-mcp](https://github.com/Context-Link/apple-mail-mcp)
-
-Then fall back to `chat` output.
-
-#### Output: `desktop`
-
-Save the draft as an `.rtf` file to `~/Desktop/email-drafts-{YYYY-MM-DD}/`:
-
-- Filename: `reply-to-{from-address}-{short-subject}.rtf`
-- Contents: `To:`, `Subject:`, then the draft body
-
-Create the folder if it doesn't exist. Confirm the file path to the user.

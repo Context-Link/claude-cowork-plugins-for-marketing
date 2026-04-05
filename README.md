@@ -38,9 +38,10 @@ Once added, you can browse and install any plugin from this marketplace directly
 | **dataforseo** | [started from nikhilbhansali's dataforseo-skill-claude](https://github.com/nikhilbhansali/dataforseo-skill-claude) | 8 | Complete DataForSEO API integration for SEO research |
 | **marketing** | [Anthropic](https://github.com/anthropics/knowledge-work-plugins/tree/main/marketing) | 5 | Content creation, campaigns, and performance analytics |
 | **marketing-skills** | [Conversion Factory](https://github.com/coreyhaines31/marketingskills) | 32 | Comprehensive marketing skills and CLI tools |
+| **email-triage** | [Context Link](https://github.com/Context-Link/claude-cowork-plugins-for-marketing/tree/master/plugins/email-triage) | 3 | Triage support inbox and draft context-aware replies using Context Link |
 | **seo-machine** | [Craig Hewitt](https://github.com/TheCraigHewitt/seomachine) | 27 | Full SEO content creation workspace |
 
-**Total: 75 skills across 5 plugins**
+**Total: 78 skills across 6 plugins**
 
 ## All Skills
 
@@ -52,11 +53,14 @@ Once added, you can browse and install any plugin from this marketplace directly
 | backlink-analysis | dataforseo | DataForSEO backlink analysis: backlink profiles, referring domains, anchors, domain authority |
 | competitor-analysis | dataforseo | DataForSEO competitor analysis: keyword gaps, competing domains, domain intersection, link gaps |
 | content-analysis | dataforseo | DataForSEO content analysis: brand mentions, sentiment analysis, content monitoring |
+| draft-email-response | email-triage | Draft a reply to a customer support email using internal knowledge from Context Link |
+| get-context | email-triage | Retrieve internal knowledge via Context Link (bundled from Context Link plugin) |
 | google-trends | dataforseo | DataForSEO Google Trends: search interest over time, trending topics, keyword trends |
 | keyword-research | dataforseo | DataForSEO keyword research: search volume, CPC, competition metrics, keyword ideas |
 | serp-analysis | dataforseo | DataForSEO SERP analysis: Google, Bing, YouTube organic search results and rankings |
 | setup-dataforseo | dataforseo | Set up DataForSEO API credentials for accessing SEO, SERP, backlinks, and keyword data APIs |
 | technical-seo | dataforseo | DataForSEO technical SEO: page audits, Lighthouse scores, site crawls, technology detection |
+| triage-email | email-triage | Pull unread support emails, generate draft replies, and push them back as threaded drafts |
 | brand-voice | marketing | Apply and enforce brand voice, style guide, and messaging pillars across content |
 | campaign-planning | marketing | Plan marketing campaigns with objectives, audience segmentation, channel strategy, content calendars |
 | competitive-analysis | marketing | Research competitors and compare positioning, messaging, content strategy, and market presence |
@@ -189,6 +193,7 @@ plugins/
 ├── plugins/
 │   ├── context-link(by-context-link)/
 │   ├── dataforseo/
+│   ├── email-triage/
 │   ├── marketing(by-anthropic)/
 │   ├── marketing-skills(by-conversion-factory)/
 │   └── seo-machine(by-craig-hewitt)/
@@ -200,7 +205,7 @@ plugins/
 
 ## Skills Index
 
-All skills are indexed in `skills.json`. Each entry contains:
+All 78 skills are indexed in `skills.json`. Each entry contains:
 
 ```json
 {
