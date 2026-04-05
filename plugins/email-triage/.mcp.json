@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "gmail": {
+      "type": "http",
+      "url": "https://gmail.mcp.claude.com/mcp"
+    },
+    "zoho-mail": {
+      "type": "http",
+      "url": "https://www.zoho.com/mcp/"
+    }
+  }
+}

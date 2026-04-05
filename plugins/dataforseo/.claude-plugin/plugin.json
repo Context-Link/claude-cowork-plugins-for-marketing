@@ -1,0 +1,19 @@
+{
+  "name": "dataforseo",
+  "description": "Complete DataForSEO API integration with 8 specialized skills: keyword research (search volume, CPC, keyword ideas), SERP analysis (Google, Bing, YouTube rankings), backlink analysis (profiles, referring domains, domain authority), competitor analysis (keyword gaps, competing domains), technical SEO (Lighthouse audits, page analysis, technology detection), content analysis (brand mentions, sentiment), and Google Trends.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Context Link"
+  },
+  "repository": "https://github.com/oliwoodsuk/claude-cowork-plugins-for-marketing",
+  "keywords": [
+    "seo",
+    "dataforseo",
+    "keyword-research",
+    "serp-analysis",
+    "backlinks",
+    "competitor-analysis",
+    "technical-seo",
+    "google-trends"
+  ]
+}

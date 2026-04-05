@@ -1,0 +1,5 @@
+.env
+credentials/
+
+# Test output
+plugins/*/tests/output/
