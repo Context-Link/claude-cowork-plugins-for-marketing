@@ -24,6 +24,6 @@ If no arguments are provided, the skill will ask the user interactively.
 ## Examples
 
 - `/triage-emails` — interactive (asks for provider and address)
-- `/triage-emails --provider zoho --address hello@preproduct.io` — full automation
+- `/triage-emails --provider zoho --address hello@example.com` — full automation
 - `/triage-emails gmail` — Gmail, interactive address selection
 - `/triage-emails zoho all` — Zoho, all addresses

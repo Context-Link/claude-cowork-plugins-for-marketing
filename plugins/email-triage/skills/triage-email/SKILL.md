@@ -13,7 +13,7 @@ args:
     description: "The email provider to use: 'gmail' or 'zoho'"
     required: false
   email_address:
-    description: "The specific email address to triage (e.g. hello@preproduct.io). Use 'all' for all addresses."
+    description: "The specific email address to triage (e.g. hello@example.com). Use 'all' for all addresses."
     required: false
   output:
     description: "Output format: 'ui' (default, interactive HTML) or 'chat' (plain text fallback). UI is auto-delivered as Cowork artifact or opened in browser for Claude Code."

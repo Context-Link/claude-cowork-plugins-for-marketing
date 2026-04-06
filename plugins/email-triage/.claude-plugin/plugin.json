@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "description": "Triage your support inbox — pull unread emails, generate context-aware draft replies, and push them back as threaded drafts. Supports Gmail and Zoho Mail via MCP connectors.",
   "author": {
-    "name": "PreProduct"
+    "name": "Context Link"
   },
-  "homepage": "https://preproduct.io",
-  "repository": "https://github.com/preproduct/email-triage-plugin",
+  "homepage": "https://context-link.ai",
+  "repository": "https://github.com/Context-Link/claude-cowork-plugins-for-marketing",
   "license": "MIT"
 }

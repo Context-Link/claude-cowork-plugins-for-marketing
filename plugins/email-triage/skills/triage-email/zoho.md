@@ -48,7 +48,7 @@ subsequent calls.
 
 The `getMailAccounts` response contains an `emailAddress` array with all addresses
 on the account (primary + aliases). Each entry has:
-- `mailId` — the email address (e.g. `hello@preproduct.io`)
+- `mailId` — the email address (e.g. `hello@example.com`)
 - `isPrimary` — whether this is the primary address
 - `isAlias` — whether this is an alias
 
@@ -104,7 +104,7 @@ to 24 hours ago and discard older messages.
 **Address filtering:** If the user selected a specific email address in Step 0,
 filter results to only include emails where the `toAddress` field contains the
 chosen address. The `toAddress` value may include display names and angle brackets
-(e.g. `"Hello"<hello@preproduct.io>` or `<admin@preproduct.io>`), so match by
+(e.g. `"Hello"<hello@example.com>` or `<admin@example.com>`), so match by
 checking if the chosen address appears anywhere in the `toAddress` string.
 If the user chose "all", skip this filter.
 
@@ -128,7 +128,7 @@ Replace `{DD-MMM-YYYY}` with yesterday's date (e.g. `04-APR-2026`).
 with the `to:` search key:
 
 ```
-searchKey: "to:hello@preproduct.io::fromDate:04-APR-2026"
+searchKey: "to:hello@example.com::fromDate:04-APR-2026"
 ```
 
 **Search syntax reference:**

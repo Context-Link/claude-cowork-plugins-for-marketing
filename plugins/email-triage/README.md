@@ -88,7 +88,7 @@ Without Context Link, the plugin still works. Replies are drafted from the email
 ### Triage your inbox
 
 ```
-> triage my zoho inbox for hello@preproduct.io
+> triage my zoho inbox for hello@example.com
 ```
 
 Pulls unread emails, drafts replies for each, and displays them as interactive cards.
@@ -105,7 +105,7 @@ Looks up context, drafts a reply, and prompts you for feedback to learn from.
 ### Skip the prompts
 
 ```
-> /triage-emails --provider zoho --address hello@preproduct.io
+> /triage-emails --provider zoho --address hello@example.com
 ```
 
 Passes arguments directly so there are no setup questions.
