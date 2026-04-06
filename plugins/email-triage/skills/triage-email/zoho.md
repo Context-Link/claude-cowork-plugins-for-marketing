@@ -56,9 +56,8 @@ Present these to the user so they can choose which address to triage. For exampl
 
 ```
 emailAddress: [
-  { "mailId": "hello@preproduct.io", "isPrimary": true, "isAlias": false },
-  { "mailId": "admin@preproduct.io", "isPrimary": false, "isAlias": true },
-  { "mailId": "payment_plans@preproduct.io", "isPrimary": false, "isAlias": true }
+  { "mailId": "email@email.io", "isPrimary": true, "isAlias": false },
+  { "mailId": "admin@email.io", "isPrimary": false, "isAlias": true }
 ]
 ```
 

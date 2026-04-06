@@ -12,8 +12,7 @@ Draft a reply to a customer support email using the draft-email-response skill.
 
 Use the skill instructions from `${CLAUDE_PLUGIN_ROOT}/skills/draft-email-response/SKILL.md` to generate the reply.
 
-The reply is always displayed in chat. For bulk delivery to Apple Mail or Desktop
-files, use `/triage-emails` instead.
+The reply is always displayed in chat. For bulk triage, use `/triage-emails` instead.
 
 ## Input
 

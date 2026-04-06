@@ -16,8 +16,9 @@ args:
     description: "The specific email address to triage (e.g. hello@preproduct.io). Use 'all' for all addresses."
     required: false
   output:
-    description: "Where to put the draft replies: 'apple-mail', 'desktop', or 'chat'. Defaults to asking the user."
+    description: "Output format: 'ui' (default, interactive HTML) or 'chat' (plain text fallback). UI is auto-delivered as Cowork artifact or opened in browser for Claude Code."
     required: false
+    default: "ui"
 ---
 
 # Triage Email Skill
@@ -43,6 +44,10 @@ Read the appropriate reference file before starting. Only ask if `email_provider
 was not provided:
 
 > Which inbox should I pull from — **Gmail** or **Zoho**?
+
+## Pre-flight: Check if there's a Context Link
+If not, ask the user for there Context Link and paste it below for future use:
+Context Link: 
 
 ## Pre-flight: Choose the email address
 
@@ -151,134 +156,64 @@ Body:    [REPLY NEEDED] — This email requires a human reply.
 
 The placeholder tag `[REPLY NEEDED]` makes these easy to find and filter in the inbox.
 
-### Step 3 — Deliver the drafts
+### Step 3 — Display the drafts
 
-Check the `output` arg to determine where to put the drafts.
+After all drafts are generated, present them using the **draft display UI**.
 
-If `output` was not provided, check the lessons loaded in Step 0 for a saved output
-preference (look for a lesson about "output preference" or "draft delivery"). If found,
-use that preference without asking.
+Read the HTML template at `draft-display.html` (same directory as this file). Copy its
+full contents, then replace the `DRAFTS` array with the real data from Steps 1 and 2:
 
-If no arg and no saved preference, ask the user:
-
-> Where would you like the draft replies?
->
-> 1. **Apple Mail** — create drafts directly in Mail.app on your Mac
-> 2. **Desktop folder** — save as .rtf files in a dated folder on your Desktop
-> 3. **Chat** — display them here so you can copy-paste
-
-After the user chooses, save their preference as a lesson via **update-memory** to
-`customer-support-email-lessons` so they won't be asked again next time. E.g.:
-`"Output preference: always deliver drafts to Apple Mail unless told otherwise."`
-
-#### Output: `apple-mail`
-
-**Pre-flight check (do this BEFORE drafting any emails):**
-
-If `apple-mail` is the selected output (via arg, saved preference, or user choice),
-verify the Apple Mail MCP is connected before doing any work:
-
-```
-ToolSearch(query: "+apple mail", max_results: 10)
+```js
+const DRAFTS = [
+  {
+    id: 1,
+    from: "{fromAddress}",
+    subject: "{subject}",
+    received: "{relative time, e.g. '~2h ago'}",
+    draft: "{scrubbed draft reply text from Step 2}",
+    actions: [
+      "{required action 1}",
+      "{required action 2, if any}"
+    ]
+  },
+  // ... one entry per email
+];
 ```
 
-Look for tools like `manage_drafts`, `list_accounts`, `search_emails`. If none are
-found, **try to fix it automatically:**
+The UI renders as interactive collapsible cards:
+- **Checkbox** on the left of each card — tick to mark as done (fades and strikes through)
+- Click to expand/collapse and see the full draft with a **Copy draft** button
+- **Required actions** appear as checkboxes so the rep can tick them off
+- "Expand all / Collapse all" toggle at the top
 
-1. Ask the user for permission to install the required dependency:
+**Important:** Do not use the example data from the template. Replace the `DRAFTS` array
+entirely with real drafts from the triage run. Escape any quotes or backslashes in the
+draft text so the JS string stays valid.
 
-   > Apple Mail output needs a Python package (`fastmcp`) to run. Can I install it
-   > for you? This is a one-time setup.
+#### Delivery: Cowork vs Claude Code
 
-2. If they agree, run:
-
-   ```bash
-   pip install fastmcp>=3.1.0 --break-system-packages
-   ```
-
-3. After installing, the plugin should be restarted to pick up the MCP. Tell the user:
-
-   > Installed. You'll need to restart the plugin for Apple Mail to connect.
-   > In the meantime, would you like me to use **Desktop folder** or **Chat** for
-   > this run?
-
-If the user declines the install, or if they're not on macOS, offer Desktop folder or
-Chat as alternatives.
-
-Do not proceed with email fetching or drafting until the output method is confirmed working.
-
-**Creating drafts in Apple Mail:**
-
-The bundled Apple Mail MCP runs in `--read-only` mode (sending disabled, drafts work).
-
-For each draft reply, use `manage_drafts` with `action="create"`:
+**Auto-detect the environment** by checking if `mcp__cowork__` tools are available:
 
 ```
-manage_drafts(
-  account: "{mail account name}",
-  action: "create",
-  subject: "Re: {original_subject}",
-  to: "{original sender email}",
-  body: "{draft reply text}",
-  mode: "draft"
-)
+ToolSearch(query: "+cowork", max_results: 3)
 ```
 
-If you need to find the right account name first, use `list_accounts()`.
+- **If Cowork tools are found** → write the populated `.html` file to the user's
+  workspace folder and present it as an artifact. It renders inline in Cowork.
 
-After creating all drafts:
+- **If no Cowork tools** (Claude Code / CLI) → write the populated `.html` file to a
+  temp path and tell the user where to find it:
+  ```
+  ✓ {N} draft replies ready. Open this file in your browser to review:
+    file:///tmp/email-drafts-{YYYY-MM-DD}.html
+  ```
+  Then ask if they'd like you to open it automatically:
+  ```bash
+  open /tmp/email-drafts-{YYYY-MM-DD}.html      # macOS
+  xdg-open /tmp/email-drafts-{YYYY-MM-DD}.html  # Linux
+  ```
 
-```
-✓ Created {N} draft replies in Apple Mail.
-  Open Mail.app → Drafts to review and send.
-```
-
-#### Output: `desktop`
-
-Create a dated folder on the user's Desktop and save each draft as an `.rtf` file.
-
-1. Create the folder: `~/Desktop/email-drafts-{YYYY-MM-DD}/`
-2. For each draft, create a file named: `reply-to-{from-address}-{short-subject}.rtf`
-3. Each file contains the full draft reply, formatted as:
-
-```
-To: {fromAddress}
-Subject: Re: {original_subject}
-
-{draft reply body}
-```
-
-Use bash to create the folder and write the files. Keep filenames clean —
-lowercase, dashes for spaces, strip special characters, truncate long subjects.
-
-After saving:
-
-```
-✓ Saved {N} draft replies to ~/Desktop/email-drafts-{YYYY-MM-DD}/
-  Open the folder to review, then copy-paste into your email client.
-```
-
-#### Output: `chat`
-
-Display each draft in the conversation for the user to copy-paste manually.
-
-For each draft, format as:
-
-```
----
-**To:** {fromAddress}
-**Subject:** Re: {original_subject}
-
-{draft reply body}
----
-```
-
-After displaying all drafts:
-
-```
-✓ {N} draft replies above — copy each into your email client as a reply
-  to the original thread.
-```
+Both environments use the exact same HTML file — no build step, no dependencies.
 
 ---
 
@@ -287,7 +222,7 @@ After displaying all drafts:
 - If no unread emails are found, tell the user: "No unread emails from the last 24 hours — inbox zero!"
 - If a specific draft fails to create, log the error, skip it, and continue with the rest. Report failures at the end.
 - If the email provider connection fails (e.g. Gmail MCP not connected, Zoho MCP not connected), give the user clear instructions on how to fix it. For Zoho, direct them to [zoho.com/mcp](https://www.zoho.com/mcp/) to set up the connector.
-- If the chosen output method fails (e.g. Apple Mail MCP not found), offer the fallback options.
+- If artifact rendering fails for any reason, fall back to plain text chat output.
 
 ---
 
@@ -306,12 +241,10 @@ This skill relies on two other skills:
   `customer-support-email-lessons` namespace on Context Link. If not available,
   the lesson-learning step is skipped silently.
 
-Optional:
-- **Apple Mail MCP** — Bundled with this plugin at `apple-mail-mcp/` and configured
-  in `.mcp.json` with `--read-only` mode (sending disabled, drafts work). Requires
-  macOS with Mail.app configured, Python 3.10+, and `fastmcp>=3.1.0`. Not required
-  — the skill works without it using desktop folder or chat output. Source:
-  [github.com/Context-Link/apple-mail-mcp](https://github.com/Context-Link/apple-mail-mcp)
+Assets:
+- **draft-display.html** — Self-contained HTML/CSS/JS template for rendering draft
+  replies as interactive collapsible cards. Works in both Cowork (as artifact) and
+  Claude Code (opened in browser). Located in the same directory as this file.
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 description: Pull unread emails from the last 24 hours, generate draft replies, and push them back to your inbox
 allowed-tools: Bash, WebFetch, ToolSearch
-argument-hint: "[--provider gmail|zoho] [--address email] [--output apple-mail|desktop|chat]"
+argument-hint: "[--provider gmail|zoho] [--address email]"
 ---
 
 # Triage Emails
@@ -18,13 +18,12 @@ Parse the following optional arguments from `$ARGUMENTS`:
 
 - `--provider` or first positional arg → pass as `email_provider` (`gmail` or `zoho`)
 - `--address` → pass as `email_address` (specific address or `all`)
-- `--output` → pass as `output` (`apple-mail`, `desktop`, or `chat`)
 
 If no arguments are provided, the skill will ask the user interactively.
 
 ## Examples
 
-- `/triage-emails` — interactive (asks for provider, address, and output)
-- `/triage-emails --provider zoho --address hello@preproduct.io --output desktop` — full automation
-- `/triage-emails gmail --output apple-mail` — Gmail, drafts to Mail.app
-- `/triage-emails zoho all --output chat` — Zoho, all addresses, show drafts in chat
+- `/triage-emails` — interactive (asks for provider and address)
+- `/triage-emails --provider zoho --address hello@preproduct.io` — full automation
+- `/triage-emails gmail` — Gmail, interactive address selection
+- `/triage-emails zoho all` — Zoho, all addresses

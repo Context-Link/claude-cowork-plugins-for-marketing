@@ -1,8 +1,10 @@
-# Email Triage Plugin
+# Email Triage Plugin for Claude
 
-Triage your support inbox from Claude. Pull unread emails, generate context-aware draft replies using your knowledge base, and push them back as threaded drafts — ready for a human to review and send.
+Triage your support inbox from Claude. Pull unread emails, generate context-aware draft replies using your knowledge base, and review them in an interactive UI, ready for a human to copy, edit, and send.
 
-This plugin relies on [Context Link](https://www.context-link.ai) to semantically search and retrieve context from your emails, docs, websites, and anything else you connect. Context Link indexes your content sources into a searchable knowledge base, so when a customer email comes in, the plugin can pull in the most relevant information to draft an accurate reply. 
+The plugin learns from your corrections over time. After each triage run, you can paste the replies you actually sent or give direct feedback. Lessons are stored in your [Context Link](https://www.context-link.ai) knowledge base and applied to future drafts automatically.
+
+Works in both **Claude Desktop (Cowork)** and **Claude Code (CLI)**. Everything runs in the cloud (email fetching via Gmail or Zoho MCP, context retrieval via Context Link) so there's nothing to install locally beyond the plugin itself.
 
 ## Installation
 
@@ -10,18 +12,16 @@ This plugin relies on [Context Link](https://www.context-link.ai) to semanticall
 
 1. Open the Claude Desktop app and switch to the **Cowork** tab
 2. Click **Customize** in the left sidebar
-3. Click **Browse plugins** and search for **email-triage**, or upload the plugin file directly
+3. Click **Browse plugins** and search for **email-triage**
 
-If the plugin isn't listed in the marketplace, you can add the GitHub marketplace first:
+If the plugin isn't listed, add the GitHub marketplace first:
 
 1. In Cowork, go to **Customize → Personal plugins +**
-2. **+ create plugin** -> **Add marketplace**
-2. Add the marketplace repo: `Context-Link/claude-cowork-plugins-for-marketing`
-3. Then install **email-triage** from the plugin list
+2. **+ create plugin** → **Add marketplace**
+3. Add the marketplace repo: `Context-Link/claude-cowork-plugins-for-marketing`
+4. Then install **email-triage** from the plugin list
 
 ### Claude Code (CLI)
-
-Add the marketplace, then install the plugin:
 
 ```bash
 /plugin marketplace add Context-Link/claude-cowork-plugins-for-marketing
@@ -31,75 +31,67 @@ Add the marketplace, then install the plugin:
 
 Plugin source: [github.com/Context-Link/claude-cowork-plugins-for-marketing/tree/master/plugins/email-triage](https://github.com/Context-Link/claude-cowork-plugins-for-marketing/tree/master/plugins/email-triage)
 
-## Commands
-
-| Command | Description |
-|---|---|
-| `/triage-emails` | Pull unread emails from the last 24 hours, generate draft replies, and push them back to your inbox |
-| `/draft-reply` | Paste a customer email and get a context-aware draft reply |
-
-## Skills
-
-| Skill | Triggers when you... |
-|-------|---------------------|
-| `triage-email` | Say "triage emails", "triage inbox", "process support emails", or ask to batch-reply to customer emails |
-| `draft-email-response` | Paste a support email and ask for a reply, or say "draft a reply", "reply to this email" |
-| `get-context` | Reference internal knowledge, say "get context" (bundled from Context Link plugin) |
-| `update-memory` | Save lessons from email edits to Context Link (bundled from Context Link plugin) |
-| `scrub` | Clean AI tells from draft text before output |
-
 ## How it works
 
 ### Triage flow
 
 1. **Connect** — Choose Gmail or Zoho Mail, pick which email address to triage
-2. **Fetch** — Pull all unread emails from the last 24 hours
-3. **Draft** — Each reply is automatically generated using your Context Link knowledge base (spam/phishing skipped)
-4. **Deliver** — Choose where drafts go (preference is remembered):
-   - **Apple Mail** — creates drafts directly in Mail.app via the Apple Mail MCP
-   - **Desktop folder** — saves `.rtf` files to `~/Desktop/email-drafts-{date}/`
-   - **Chat** — displays drafts in the conversation for copy-paste
+2. **Fetch** — Pull all unread emails from the last 24 hours (spam and automated notifications are skipped)
+3. **Draft** — Each reply is generated using your Context Link knowledge base and any lessons from previous corrections
+4. **Review** — Drafts appear in an interactive UI with collapsible cards, copy buttons, and action checklists
+5. **Learn** — After you send the replies, paste back what you actually sent or tell Claude what to do differently. Lessons are saved to Context Link and used in future runs.
+
+In **Cowork**, the draft UI renders inline as an artifact. In **Claude Code**, it opens in your default browser.
 
 ### Standalone reply
 
-Paste any customer email and run `/draft-reply` — the plugin looks up relevant context from your knowledge base and drafts a warm, practical reply you can send or lightly edit.
+Paste any customer email and run `/draft-reply`. The plugin looks up relevant context, applies learned lessons, scrubs AI tells from the output, and drafts a reply you can send or lightly edit.
+
+## Commands
+
+| Command | Description |
+|---|---|
+| `/triage-emails` | Pull unread emails, generate draft replies, and display them in the interactive UI |
+| `/draft-reply` | Paste a single customer email and get a context-aware draft reply |
+
+## Skills
+
+| Skill | What it does |
+|-------|-------------|
+| `triage-email` | Orchestrates the full triage workflow: fetch, draft, display, learn |
+| `draft-email-response` | Generates a single context-aware draft reply with required actions |
+| `scrub` | Removes AI tells from draft text (filler phrases, watermarks, overly enthusiastic language) |
+| `get-context` | Retrieves product knowledge and support context from Context Link |
+| `update-memory` | Saves learned lessons back to Context Link for future runs |
 
 ## Setup
 
-### Email provider
+### Email provider (required)
 
 Connect at least one email provider:
 
-- **Gmail** — Enable in **Settings → Connectors → Gmail**
-- **Zoho Mail** — Set up at [zoho.com/mcp](https://www.zoho.com/mcp/), select Zoho Mail, and follow the setup steps
+- **Gmail** — Enable the Gmail connector in **Settings → Connectors → Gmail**
+- **Zoho Mail** — Set up at [zoho.com/mcp](https://www.zoho.com/mcp/), select Zoho Mail, and follow the setup steps (required enabled tools: "getMailAccounts, listEmails, SearchEmails")
 
-### Apple Mail output (optional)
+### Knowledge base (recommended)
 
-The Apple Mail MCP is bundled with this plugin and pre-configured in `.mcp.json` with `--read-only` mode (sending is disabled, drafts work). Requirements: macOS with Mail.app configured.
-
-On first use, the plugin will ask permission to install the Python dependency (`fastmcp`) automatically. You'll also need to grant Automation permissions when macOS prompts (System Settings → Privacy & Security → Automation).
-
-If Apple Mail isn't available, the plugin falls back to Desktop folder or Chat output.
-
-### Knowledge base (optional but recommended)
-
-This plugin includes a bundled copy of the `get-context` skill from the [Context Link](https://context-link.ai) plugin. To use it:
+This plugin uses [Context Link](https://context-link.ai) for two things: retrieving support context when drafting replies, and storing lessons learned from your corrections.
 
 1. Sign in at [context-link.ai](https://context-link.ai)
 2. Connect your support docs, website, and knowledge sources
-3. The plugin will automatically look up relevant context when drafting replies
+3. The plugin will automatically look up relevant context when drafting and save lessons when you provide feedback
 
-If Context Link is not configured, the plugin still works — replies will be drafted based on the email content alone.
+Without Context Link, the plugin still works. Replies are drafted from the email content alone, and lessons aren't persisted between sessions.
 
-## Example Workflows
+## Example usage
 
-### Triaging your inbox
+### Triage your inbox
 
 ```
 > triage my zoho inbox for hello@preproduct.io
 ```
 
-Claude will pull unread emails, show you a summary table, and generate a draft reply for each one you select.
+Pulls unread emails, drafts replies for each, and displays them as interactive cards.
 
 ### Quick reply to a single email
 
@@ -108,31 +100,22 @@ Claude will pull unread emails, show you a summary table, and generate a draft r
 [paste customer email]
 ```
 
-Claude will identify the issue, look up relevant context, and draft a reply.
+Looks up context, drafts a reply, and prompts you for feedback to learn from.
 
-### Triage with all arguments
-
-```
-> /triage-emails --provider zoho --address hello@preproduct.io --output apple-mail
-```
-
-Skip all setup questions — fetch from Zoho, filter to one address, and create drafts in Mail.app.
-
-### Save drafts to Desktop
+### Skip the prompts
 
 ```
-> /triage-emails --output desktop
+> /triage-emails --provider zoho --address hello@preproduct.io
 ```
 
-Drafts are saved as `.rtf` files in `~/Desktop/email-drafts-2026-04-05/` — one file per reply.
+Passes arguments directly so there are no setup questions.
 
-## MCP Integrations
+## MCP connectors
 
-> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](CONNECTORS.md).
+This plugin uses the following MCP servers (configured in `.mcp.json`):
 
-This plugin works with the following MCP servers:
+- **Gmail** — Fetch and search emails via the Gmail MCP
+- **Zoho Mail** — Fetch and search emails via the Zoho MCP
+- **Context Link** — Retrieved via HTTP (no MCP server needed; uses the get-context skill)
 
-- **Gmail** — Fetch emails, read messages, create threaded draft replies
-- **Zoho Mail** — Fetch emails, search messages (draft creation pending MCP support)
-- **Apple Mail** — Bundled with this plugin (`apple-mail-mcp/`), runs in read-only mode (drafts work, sending disabled). Requires macOS, Mail.app, Python 3.10+. Source: [github.com/Context-Link/apple-mail-mcp](https://github.com/Context-Link/apple-mail-mcp)
-- **Context Link** — Look up product knowledge, support docs, and past answers for reply generation
+See [CONNECTORS.md](CONNECTORS.md) for tool-specific reference.

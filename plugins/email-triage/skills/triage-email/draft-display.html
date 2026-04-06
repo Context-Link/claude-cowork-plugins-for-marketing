@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Draft Replies</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: #fff; color: #111; padding: 24px; max-width: 680px; margin: 0 auto; }
+
+  .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .header h1 { font-size: 18px; font-weight: 600; }
+  .header p { font-size: 13px; color: #888; margin-top: 2px; }
+  .toggle-all { font-size: 12px; color: #888; cursor: pointer; background: none; border: none; text-decoration: underline; }
+  .toggle-all:hover { color: #555; }
+
+  .cards { display: flex; flex-direction: column; gap: 8px; }
+
+  .card { border: 1px solid #e5e5e5; border-radius: 10px; overflow: hidden; background: #fff; transition: opacity 0.2s, border-color 0.2s; }
+  .card.checked { opacity: 0.5; border-color: #f0f0f0; }
+
+  .card-header { display: flex; align-items: center; width: 100%; cursor: pointer; }
+  .card-checkbox { padding: 14px 0 14px 16px; display: flex; align-items: center; }
+  .card-summary { flex: 1; padding: 14px 16px 14px 12px; display: flex; align-items: center; justify-content: space-between; }
+  .card-summary:hover { background: #fafafa; }
+  .card-info { min-width: 0; }
+  .card-subject { font-size: 14px; font-weight: 500; color: #111; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: color 0.2s; }
+  .card.checked .card-subject { color: #aaa; text-decoration: line-through; }
+  .card-meta { font-size: 12px; color: #888; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .chevron { width: 16px; height: 16px; color: #bbb; flex-shrink: 0; margin-left: 8px; transition: transform 0.2s; }
+  .chevron.open { transform: rotate(180deg); }
+
+  .card-body { border-top: 1px solid #f0f0f0; }
+  .draft-section { padding: 14px 16px; }
+  .draft-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .draft-label { font-size: 11px; font-weight: 600; color: #bbb; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .copy-btn { padding: 5px 12px; font-size: 12px; font-weight: 500; border-radius: 6px; border: 1px solid #e5e5e5; background: #fff; color: #666; cursor: pointer; transition: all 0.15s; }
+  .copy-btn:hover { background: #fafafa; border-color: #ccc; }
+  .copy-btn.copied { color: #16a34a; border-color: #bbf7d0; background: #f0fdf4; }
+
+  .draft-text { font-size: 14px; line-height: 1.65; color: #444; white-space: pre-wrap; background: #fafafa; border: 1px solid #f0f0f0; border-radius: 8px; padding: 12px; }
+
+  .actions-section { padding: 0 16px 14px; }
+  .actions-label { font-size: 11px; font-weight: 600; color: #d97706; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .action-item { display: flex; align-items: flex-start; gap: 8px; padding: 3px 0; }
+  .action-text { font-size: 13px; color: #555; transition: color 0.2s; }
+  .action-text.done { color: #bbb; text-decoration: line-through; }
+
+  /* Checkbox */
+  .cb { width: 16px; height: 16px; border-radius: 4px; border: 1.5px solid #ccc; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.15s; -webkit-appearance: none; appearance: none; }
+  .cb:hover { border-color: #999; }
+  .cb:checked { background: #333; border-color: #333; }
+  .cb:checked::after { content: ''; display: block; width: 4px; height: 8px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg) translate(-0.5px, -0.5px); }
+  .action-item .cb { margin-top: 1px; }
+
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>Draft replies</h1>
+    <p id="counter"></p>
+  </div>
+  <button class="toggle-all" id="toggleAll">Expand all</button>
+</div>
+
+<div class="cards" id="cards"></div>
+
+<script>
+// ── DATA ── Replace this array with real draft data from the triage run
+const DRAFTS = [
+  {
+    id: 1,
+    from: "frpeterheers@uncutmountainpress.com",
+    subject: "Help with Preproduct listing",
+    received: "~6h ago",
+    draft: "Hi Fr. Peter,\n\nBoth of these are theme-level issues I can fix for you. The \"In stock\" notice is your theme reacting to Shopify's \"Continue selling when out of stock\" checkbox, which is required for pre-orders to work. The Add to Cart button just needs to be hidden for products where only pre-order is active.\n\nI'll request temporary access to your Shopify store now and get both fixed up for you.\n\nBest,\nOli",
+    actions: [
+      "Send Shopify collaborator request to Fr. Peter Heers' store",
+      "Hide 'In stock, Ready to Ship' label in theme",
+      "Hide Add to Cart button on pre-order-only listings"
+    ]
+  },
+  {
+    id: 2,
+    from: "sarah@example-store.com",
+    subject: "Pre-order button not showing on collection page",
+    received: "~2h ago",
+    draft: "Hi Sarah,\n\nThe pre-order button only loads on the product page by default. Collection pages use quick-buy buttons from your theme, which bypass PreProduct.\n\nI'll request temporary access now and add pre-order support to your collection page template.\n\nBest,\nOli",
+    actions: [
+      "Send Shopify collaborator request",
+      "Add PreProduct snippet to collection page template"
+    ]
+  },
+  {
+    id: 3,
+    from: "mike@gadgetworld.co",
+    subject: "Payment plan emails not sending",
+    received: "~45m ago",
+    draft: "Hi Mike,\n\nThis usually means the email notification for payment plans is toggled off in PreProduct settings. Go to PreProduct > Settings > Notifications and make sure \"Payment plan created\" is enabled.\n\nIf that's already on, let me know and I'll dig deeper.\n\nBest,\nOli",
+    actions: []
+  }
+];
+
+// ── STATE ──
+const openIds = new Set([DRAFTS[0]?.id]);
+const checkedIds = new Set();
+const actionChecks = {};
+let allExpanded = false;
+
+// ── RENDER ──
+function render() {
+  const doneCount = checkedIds.size;
+  document.getElementById('counter').textContent = doneCount + '/' + DRAFTS.length + ' done';
+  document.getElementById('toggleAll').textContent = allExpanded ? 'Collapse all' : 'Expand all';
+
+  const container = document.getElementById('cards');
+  container.innerHTML = '';
+
+  DRAFTS.forEach(function(d) {
+    const isOpen = openIds.has(d.id);
+    const isChecked = checkedIds.has(d.id);
+
+    const card = document.createElement('div');
+    card.className = 'card' + (isChecked ? ' checked' : '');
+
+    // Header
+    const header = document.createElement('div');
+    header.className = 'card-header';
+
+    // Checkbox area
+    const cbWrap = document.createElement('div');
+    cbWrap.className = 'card-checkbox';
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.className = 'cb';
+    cb.checked = isChecked;
+    cb.addEventListener('change', function() {
+      if (checkedIds.has(d.id)) checkedIds.delete(d.id);
+      else checkedIds.add(d.id);
+      render();
+    });
+    cbWrap.appendChild(cb);
+
+    // Summary area (clickable to expand)
+    const summary = document.createElement('div');
+    summary.className = 'card-summary';
+    summary.addEventListener('click', function() {
+      if (openIds.has(d.id)) openIds.delete(d.id);
+      else openIds.add(d.id);
+      render();
+    });
+
+    const info = document.createElement('div');
+    info.className = 'card-info';
+    const subj = document.createElement('div');
+    subj.className = 'card-subject';
+    subj.textContent = d.subject;
+    const meta = document.createElement('div');
+    meta.className = 'card-meta';
+    meta.textContent = d.from + ' \u00B7 ' + d.received;
+    info.appendChild(subj);
+    info.appendChild(meta);
+
+    const chev = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    chev.setAttribute('viewBox', '0 0 24 24');
+    chev.setAttribute('fill', 'none');
+    chev.setAttribute('stroke', 'currentColor');
+    chev.setAttribute('class', 'chevron' + (isOpen ? ' open' : ''));
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('stroke-linecap', 'round');
+    path.setAttribute('stroke-linejoin', 'round');
+    path.setAttribute('stroke-width', '2');
+    path.setAttribute('d', 'M19 9l-7 7-7-7');
+    chev.appendChild(path);
+
+    summary.appendChild(info);
+    summary.appendChild(chev);
+    header.appendChild(cbWrap);
+    header.appendChild(summary);
+    card.appendChild(header);
+
+    // Body (collapsible)
+    if (isOpen) {
+      const body = document.createElement('div');
+      body.className = 'card-body';
+
+      // Draft section
+      const draftSec = document.createElement('div');
+      draftSec.className = 'draft-section';
+
+      const draftHead = document.createElement('div');
+      draftHead.className = 'draft-header';
+      const label = document.createElement('div');
+      label.className = 'draft-label';
+      label.textContent = 'Draft reply';
+      const copyBtn = document.createElement('button');
+      copyBtn.className = 'copy-btn';
+      copyBtn.textContent = 'Copy draft';
+      copyBtn.addEventListener('click', function() {
+        navigator.clipboard.writeText(d.draft).then(function() {
+          copyBtn.textContent = '\u2713 Copied';
+          copyBtn.classList.add('copied');
+          setTimeout(function() {
+            copyBtn.textContent = 'Copy draft';
+            copyBtn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      draftHead.appendChild(label);
+      draftHead.appendChild(copyBtn);
+
+      const draftText = document.createElement('div');
+      draftText.className = 'draft-text';
+      draftText.textContent = d.draft;
+
+      draftSec.appendChild(draftHead);
+      draftSec.appendChild(draftText);
+      body.appendChild(draftSec);
+
+      // Actions section
+      if (d.actions.length > 0) {
+        const actSec = document.createElement('div');
+        actSec.className = 'actions-section';
+        const actLabel = document.createElement('div');
+        actLabel.className = 'actions-label';
+        actLabel.textContent = 'Required actions';
+        actSec.appendChild(actLabel);
+
+        d.actions.forEach(function(action, i) {
+          const key = d.id + '-' + i;
+          const item = document.createElement('div');
+          item.className = 'action-item';
+
+          const acb = document.createElement('input');
+          acb.type = 'checkbox';
+          acb.className = 'cb';
+          acb.checked = !!actionChecks[key];
+          acb.addEventListener('change', function() {
+            actionChecks[key] = !actionChecks[key];
+            render();
+          });
+
+          const txt = document.createElement('span');
+          txt.className = 'action-text' + (actionChecks[key] ? ' done' : '');
+          txt.textContent = action;
+
+          item.appendChild(acb);
+          item.appendChild(txt);
+          actSec.appendChild(item);
+        });
+
+        body.appendChild(actSec);
+      }
+
+      card.appendChild(body);
+    }
+
+    container.appendChild(card);
+  });
+}
+
+// ── TOGGLE ALL ──
+document.getElementById('toggleAll').addEventListener('click', function() {
+  allExpanded = !allExpanded;
+  if (allExpanded) {
+    DRAFTS.forEach(function(d) { openIds.add(d.id); });
+  } else {
+    openIds.clear();
+  }
+  render();
+});
+
+// Initial render
+render();
+</script>
+</body>
+</html>
