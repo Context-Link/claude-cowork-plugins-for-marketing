@@ -20,6 +20,10 @@ args:
     description: "Whether to prompt the user for email lessons after drafting. Set to 'false' when called from triage-email (which handles lessons itself). Defaults to 'true'."
     required: false
     default: "true"
+  get_lessons:
+    description: "Whether to fetch lessons from customer-support-email-lessons on Context Link before drafting. Set to 'false' when called from triage-email (which loads lessons once upfront). Defaults to 'true'."
+    required: false
+    default: "true"
 ---
 
 # Draft Email Response Skill
@@ -74,7 +78,24 @@ capture the issue in a few hyphenated keywords.
 - `cart issue`
 - `problem`
 
-### 3. Retrieve context
+### 3. Load lessons (if applicable)
+
+**Skip this step if `get_lessons` is `"false"`.**
+
+Before drafting, retrieve any previously recorded lessons from Context Link using
+the **get-context** skill with the slug `customer-support-email-lessons`:
+
+```
+🔗 Retrieving lessons from Context Link → customer-support-email-lessons
+```
+
+If lessons are returned, hold them in memory and apply them when drafting the reply
+in Step 5. These lessons take priority over the general style rules below — they
+represent real corrections from past edits.
+
+If the fetch returns empty or fails, continue without lessons.
+
+### 4. Retrieve context
 
 Use the get-context skill with `mode=customer-support`:
 
@@ -87,24 +108,25 @@ Fetch using the get-context skill (see `skills/get-context/SKILL.md`), appending
 Use the returned content as primary source material for the reply. If the context
 is insufficient, supplement with your own knowledge — but never invent facts.
 
-### 4. Draft the reply
+### 5. Draft the reply
 
-Write the reply following the style rules below.
+Write the reply following the style rules below. If lessons were loaded in Step 3,
+apply them here — they override the general style rules when there's a conflict.
 
-### 5. Scrub the draft
+### 6. Scrub the draft
 
 Before outputting, run the draft text through the **scrub** skill (see
 `skills/scrub/SKILL.md` in this plugin). This removes AI tells — em-dashes,
 filler phrases, overly enthusiastic language, and invisible watermarks — so the
 draft reads like a human wrote it.
 
-### 6. Add required actions (if applicable)
+### 7. Add required actions (if applicable)
 
 If the draft promises something the support rep needs to do (request access,
 check a setting, follow up later), list those actions clearly so they're visible
 at a glance. This goes in a **Required actions** section after the draft body.
 
-### 7. Add sources (if applicable)
+### 8. Add sources (if applicable)
 
 If you used any links, docs, or past emails from Context Link, list them at the
 bottom.

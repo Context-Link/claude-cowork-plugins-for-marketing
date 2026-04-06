@@ -67,7 +67,22 @@ See the provider-specific reference file for how to filter by recipient address.
 
 ---
 
-## The 3-step workflow
+## The workflow
+
+### Step 0 — Load lessons from Context Link
+
+Before processing any emails, fetch previously recorded support lessons once:
+
+```
+🔗 Retrieving lessons from Context Link → customer-support-email-lessons
+```
+
+Use the **get-context** skill with the slug `customer-support-email-lessons` (no mode
+param needed). If lessons are returned, hold them in memory and pass them as context
+when drafting replies in Step 2. These lessons take priority over general style rules
+in draft-email-response — they represent real corrections from past edits.
+
+If the fetch returns empty or fails, continue without lessons.
 
 ### Step 1 — Fetch unread emails from the last 24 hours
 
@@ -108,7 +123,8 @@ draft-email-response(
   from: "{fromAddress}",
   subject: "{subject}",
   body: "{summary or body content}",
-  prompt_lessons: "false"
+  prompt_lessons: "false",
+  get_lessons: "false"
 )
 ```
 
