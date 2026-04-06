@@ -63,26 +63,6 @@
             ]
         },
         {
-            "name": "email-triage",
-            "source": "./plugins/email-triage",
-            "description": "Triage your support inbox from Claude. Pull unread emails, generate context-aware draft replies using your Context Link knowledge base, and push them back as threaded drafts — ready for a human to review and send.",
-            "version": "1.0.1",
-            "author": {
-                "name": "Context Link"
-            },
-            "homepage": "https://context-link.ai",
-            "repository": "https://github.com/Context-Link/claude-cowork-plugins-for-marketing/tree/master/plugins/email-triage",
-            "category": "email",
-            "tags": [
-                "email",
-                "triage",
-                "support",
-                "drafts",
-                "inbox",
-                "context-link"
-            ]
-        },
-        {
             "name": "dataforseo",
             "source": "./plugins/dataforseo",
             "description": "Complete DataForSEO API integration with 8 specialized skills: keyword research (search volume, CPC, keyword ideas), SERP analysis (Google, Bing, YouTube rankings), backlink analysis (profiles, referring domains, domain authority), competitor analysis (keyword gaps, competing domains), technical SEO (Lighthouse audits, page analysis, technology detection), content analysis (brand mentions, sentiment), and Google Trends.",
