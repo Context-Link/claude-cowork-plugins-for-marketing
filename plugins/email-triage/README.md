@@ -45,6 +45,8 @@ Plugin source: [github.com/Context-Link/claude-cowork-plugins-for-marketing/tree
 | `triage-email` | Say "triage emails", "triage inbox", "process support emails", or ask to batch-reply to customer emails |
 | `draft-email-response` | Paste a support email and ask for a reply, or say "draft a reply", "reply to this email" |
 | `get-context` | Reference internal knowledge, say "get context" (bundled from Context Link plugin) |
+| `update-memory` | Save lessons from email edits to Context Link (bundled from Context Link plugin) |
+| `scrub` | Clean AI tells from draft text before output |
 
 ## How it works
 
@@ -52,9 +54,8 @@ Plugin source: [github.com/Context-Link/claude-cowork-plugins-for-marketing/tree
 
 1. **Connect** — Choose Gmail or Zoho Mail, pick which email address to triage
 2. **Fetch** — Pull all unread emails from the last 24 hours
-3. **Review** — See a summary table, pick which emails to reply to
-4. **Draft** — Each reply is generated using your Context Link knowledge base
-5. **Deliver** — Choose where drafts go:
+3. **Draft** — Each reply is automatically generated using your Context Link knowledge base (spam/phishing skipped)
+4. **Deliver** — Choose where drafts go (preference is remembered):
    - **Apple Mail** — creates drafts directly in Mail.app via the Apple Mail MCP
    - **Desktop folder** — saves `.rtf` files to `~/Desktop/email-drafts-{date}/`
    - **Chat** — displays drafts in the conversation for copy-paste
@@ -71,6 +72,14 @@ Connect at least one email provider:
 
 - **Gmail** — Enable in **Settings → Connectors → Gmail**
 - **Zoho Mail** — Set up at [zoho.com/mcp](https://www.zoho.com/mcp/), select Zoho Mail, and follow the setup steps
+
+### Apple Mail output (optional)
+
+The Apple Mail MCP is bundled with this plugin and pre-configured in `.mcp.json` with `--read-only` mode (sending is disabled, drafts work). Requirements: macOS with Mail.app configured.
+
+On first use, the plugin will ask permission to install the Python dependency (`fastmcp`) automatically. You'll also need to grant Automation permissions when macOS prompts (System Settings → Privacy & Security → Automation).
+
+If Apple Mail isn't available, the plugin falls back to Desktop folder or Chat output.
 
 ### Knowledge base (optional but recommended)
 
@@ -125,5 +134,5 @@ This plugin works with the following MCP servers:
 
 - **Gmail** — Fetch emails, read messages, create threaded draft replies
 - **Zoho Mail** — Fetch emails, search messages (draft creation pending MCP support)
-- **Apple Mail** — Create drafts locally in Mail.app via AppleScript ([setup](https://github.com/Context-Link/apple-mail-mcp))
+- **Apple Mail** — Bundled with this plugin (`apple-mail-mcp/`), runs in read-only mode (drafts work, sending disabled). Requires macOS, Mail.app, Python 3.10+. Source: [github.com/Context-Link/apple-mail-mcp](https://github.com/Context-Link/apple-mail-mcp)
 - **Context Link** — Look up product knowledge, support docs, and past answers for reply generation

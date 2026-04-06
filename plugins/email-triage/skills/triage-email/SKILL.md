@@ -173,28 +173,60 @@ After the user chooses, save their preference as a lesson via **update-memory** 
 
 #### Output: `apple-mail`
 
-Use the Apple Mail MCP to create drafts locally in Mail.app via AppleScript.
+**Pre-flight check (do this BEFORE drafting any emails):**
 
-First, check if Apple Mail tools are available:
+If `apple-mail` is the selected output (via arg, saved preference, or user choice),
+verify the Apple Mail MCP is connected before doing any work:
 
 ```
 ToolSearch(query: "+apple mail", max_results: 10)
 ```
 
-If found, use the `create_draft` (or equivalent) tool for each reply:
-- **to** — the original sender's email
-- **subject** — `Re: {original_subject}`
-- **body** — the draft reply from Step 2
+Look for tools like `manage_drafts`, `list_accounts`, `search_emails`. If none are
+found, **try to fix it automatically:**
 
-If Apple Mail tools are NOT found, tell the user:
+1. Ask the user for permission to install the required dependency:
 
-> The Apple Mail MCP isn't connected. You can set it up from:
-> [github.com/Context-Link/apple-mail-mcp](https://github.com/Context-Link/apple-mail-mcp)
->
-> In the meantime, would you like me to save to a **Desktop folder** or show
-> them in **chat** instead?
+   > Apple Mail output needs a Python package (`fastmcp`) to run. Can I install it
+   > for you? This is a one-time setup.
 
-After creating drafts:
+2. If they agree, run:
+
+   ```bash
+   pip install fastmcp>=3.1.0 --break-system-packages
+   ```
+
+3. After installing, the plugin should be restarted to pick up the MCP. Tell the user:
+
+   > Installed. You'll need to restart the plugin for Apple Mail to connect.
+   > In the meantime, would you like me to use **Desktop folder** or **Chat** for
+   > this run?
+
+If the user declines the install, or if they're not on macOS, offer Desktop folder or
+Chat as alternatives.
+
+Do not proceed with email fetching or drafting until the output method is confirmed working.
+
+**Creating drafts in Apple Mail:**
+
+The bundled Apple Mail MCP runs in `--read-only` mode (sending disabled, drafts work).
+
+For each draft reply, use `manage_drafts` with `action="create"`:
+
+```
+manage_drafts(
+  account: "{mail account name}",
+  action: "create",
+  subject: "Re: {original_subject}",
+  to: "{original sender email}",
+  body: "{draft reply text}",
+  mode: "draft"
+)
+```
+
+If you need to find the right account name first, use `list_accounts()`.
+
+After creating all drafts:
 
 ```
 ✓ Created {N} draft replies in Apple Mail.
@@ -275,8 +307,10 @@ This skill relies on two other skills:
   the lesson-learning step is skipped silently.
 
 Optional:
-- **Apple Mail MCP** — For creating drafts in Mail.app. Not required — the skill
-  works without it using desktop folder or chat output. Setup:
+- **Apple Mail MCP** — Bundled with this plugin at `apple-mail-mcp/` and configured
+  in `.mcp.json` with `--read-only` mode (sending disabled, drafts work). Requires
+  macOS with Mail.app configured, Python 3.10+, and `fastmcp>=3.1.0`. Not required
+  — the skill works without it using desktop folder or chat output. Source:
   [github.com/Context-Link/apple-mail-mcp](https://github.com/Context-Link/apple-mail-mcp)
 
 ---
