@@ -74,7 +74,7 @@ Use the get-context skill with `mode=customer-support`:
 🔗 Retrieving context on {query} from Context Link
 ```
 
-Fetch using the get-context skill (see `skills/get-context/SKILL.md`), appending `&mode=customer-support` to the request.
+Fetch using the get-context skill (see `skills/get-context/SKILL.md`), appending any kind of customer support related mode query param to the request if there's one listed in the get-context skill.
 
 Use the returned content as primary source material for the reply. If the context
 is insufficient, supplement with your own knowledge — but never invent facts.
@@ -83,7 +83,20 @@ is insufficient, supplement with your own knowledge — but never invent facts.
 
 Write the reply following the style rules below.
 
-### 5. Add sources (if applicable)
+### 5. Scrub the draft
+
+Before outputting, run the draft text through the **scrub** skill (see
+`skills/scrub/SKILL.md` in this plugin). This removes AI tells — em-dashes,
+filler phrases, overly enthusiastic language, and invisible watermarks — so the
+draft reads like a human wrote it.
+
+### 6. Add required actions (if applicable)
+
+If the draft promises something the support rep needs to do (request access,
+check a setting, follow up later), list those actions clearly so they're visible
+at a glance. This goes in a **Required actions** section after the draft body.
+
+### 7. Add sources (if applicable)
 
 If you used any links, docs, or past emails from Context Link, list them at the
 bottom.
@@ -94,10 +107,32 @@ bottom.
 
 Write like a real support person — warm, clear, practical, concise.
 
+### Length
+
+Aim for **3–5 short sentences per issue**. Most replies should be under 100 words total.
+A good support email answers the question and gets out of the way. If you catch yourself
+writing a second paragraph to explain the same point, cut it. Customers are busy — the
+shorter and clearer the reply, the more helpful it is.
+
+### Tone and approach
+
 - Use short paragraphs and plain English
-- Shorter emails are easier for busy customers to get value from
 - Get to the helpful part fast — don't over-explain before the answer
 - Match the customer's energy — if they're brief, be brief back
+- One sentence of empathy max, then straight to the answer
+
+### Technical issues — request access and fix it
+
+When the issue is something we can fix on the customer's end (theme tweaks, config
+changes, setup problems), **don't write a tutorial**. Instead:
+
+1. Briefly explain what's causing it (one sentence)
+2. Offer to fix it directly — request temporary collaborator/staff access via Shopify,
+   or whatever access is appropriate
+3. Let them know you'll sort it out once you're in
+
+This is a core pattern in our support. Customers don't want instructions — they want
+the problem gone. The draft should reflect this.
 
 **Do not:**
 - Invent facts or make up feature behaviour you're not sure about
@@ -105,6 +140,7 @@ Write like a real support person — warm, clear, practical, concise.
 - Mention internal tools, Context Link, or any AI involvement to the customer
 - Cite sources you did not actually retrieve
 - Over-apologise — one acknowledgement is enough
+- Write multi-step instructions when you could just offer to do it for them
 
 ---
 
@@ -119,11 +155,16 @@ services — that is the responsibility of the calling skill (e.g. triage-email)
 To: {from}
 Subject: Re: {subject}
 
-{draft email}
+{draft email — scrubbed}
+
+**Required actions**
+- {action the support rep needs to take, e.g. "Request temp collaborator access via Shopify"}
+- {another action if needed}
 
 **Sources**
 - {source 1}
 - {source 2}
 ```
 
+Only include Required actions if the draft commits to something the rep must do.
 Only include Sources if you actually used retrieved context.

@@ -7,7 +7,7 @@ description: >
 version: 0.1.0
 ---
 
-**What is Context Link?** Context Link is an external service that indexes connected sources (websites, Google Drive, Notion) and memories into a searchable knowledge base. It provides semantic search and memory storage via a simple URL: `subdomain.context-link.ai/query?p=optional_pincode`. If you don't know the user's Context Link URL, ask them for it.
+**What is Context Link?** Context Link is an external service that indexes connected sources (websites, Google Drive, Notion, email etc) and memories into a searchable knowledge base. It provides semantic search and memory storage via a simple URL: `subdomain.context-link.ai/query?p=optional_pincode`. If you don't know the user's Context Link URL, ask them for it.
 
 ---
 
