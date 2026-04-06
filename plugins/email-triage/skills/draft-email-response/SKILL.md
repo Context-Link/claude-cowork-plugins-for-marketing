@@ -185,17 +185,27 @@ Only include Sources if you actually used retrieved context.
 
 After presenting the draft, ask the user:
 
-> If you didn't use my draft verbatim, paste in the response you actually sent so I
-> can record lessons for next time.
+> If you didn't use my draft verbatim, paste in the response you actually sent — or
+> just tell me what to do differently next time — so I can record lessons for future.
 
-If the user pastes their actual sent email:
+The user may respond in one of three ways:
 
-1. **Diff the draft against what they sent.** Identify every meaningful change — tone
-   shifts, factual corrections, structural changes, things they cut, things they added.
-2. **Formulate concise, actionable lessons.** Each lesson should be one or two sentences
+**A) They paste the email they actually sent.** Diff the draft against what they sent.
+Identify every meaningful change — tone shifts, factual corrections, structural changes,
+things they cut, things they added. Formulate concise, actionable lessons from the diff.
+
+**B) They give direct instructions** (e.g. "don't do X", "always do Y", "shorter intros").
+Treat these as lessons directly — no diffing needed. Just convert them into the same
+concise lesson format.
+
+**C) They say they used it as-is or decline.** Move on — no lessons to record.
+
+For options A and B:
+
+1. **Formulate concise, actionable lessons.** Each lesson should be one or two sentences
    max. They can cover anything: tone, factual corrections, preferred phrasing, when to
    request access vs. give instructions, what to cut, what to include, etc.
-3. **Save via update-memory.** Use the **update-memory** skill (see `skills/update-memory/SKILL.md`
+2. **Save via update-memory.** Use the **update-memory** skill (see `skills/update-memory/SKILL.md`
    in this plugin) with the namespace slug `customer-support-email-lessons`.
    - **GET first** to retrieve existing lessons.
    - **Merge** the new lessons into the existing list. Deduplicate — if a new lesson
@@ -203,6 +213,4 @@ If the user pastes their actual sent email:
    - **Never overwrite completely** unless the GET returned empty/nil. Always merge in.
    - The goal is a single, context-window-efficient list of lessons that grows smarter
      over time without growing long. Condense and consolidate aggressively.
-4. Confirm: `✓ Recorded {N} new lesson(s) to customer-support-email-lessons on Context Link.`
-
-If the user says they used it as-is or declines to share, move on — no lessons to record.
+3. Confirm: `✓ Recorded {N} new lesson(s) to customer-support-email-lessons on Context Link.`

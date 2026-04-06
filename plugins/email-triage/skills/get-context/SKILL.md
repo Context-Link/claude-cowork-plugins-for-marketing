@@ -1,4 +1,4 @@
-<!-- Copied from the Context Link plugin (context-link by Context Link, v1.1.0).
+<!-- Copied from the Context Link plugin (context-link by Context Link, v0.2.0).
      Source: plugins/context-link(by-context-link)/skills/get-context/SKILL.md
      If the original is updated, this copy should be updated too. -->
 ---

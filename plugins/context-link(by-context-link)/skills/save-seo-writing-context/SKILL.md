@@ -72,10 +72,10 @@ Then merge changes with existing content.
 - For [Segment]: "[value prop]"
 
 ## Voice Examples
-### Excellent
+### Excellent ✅
 "[Example paragraph]"
 
-### Avoid
+### Avoid ❌
 "[Counter-example]"
 ```
 

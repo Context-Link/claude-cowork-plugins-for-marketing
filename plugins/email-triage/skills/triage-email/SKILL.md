@@ -257,15 +257,25 @@ Optional:
 After all drafts have been delivered, prompt the user once (not per email):
 
 > If you edited any of the drafts before sending, paste in the responses you actually
-> sent so I can record lessons for next time.
+> sent — or just tell me what to do differently next time — so I can record lessons
+> for future.
 
-If the user pastes one or more edited replies:
+The user may respond in one of three ways:
 
-1. **Diff each draft against what they sent.** Identify meaningful changes — tone
-   shifts, factual corrections, structural changes, things cut or added.
-2. **Formulate concise, actionable lessons.** One or two sentences each. Can cover
+**A) They paste one or more edited replies.** Diff each draft against what they sent.
+Identify meaningful changes — tone shifts, factual corrections, structural changes,
+things cut or added. Formulate concise, actionable lessons from the diffs.
+
+**B) They give direct instructions** (e.g. "don't do X", "always do Y", "shorter intros").
+Treat these as lessons directly — no diffing needed.
+
+**C) They say they used drafts as-is or decline.** Move on — no lessons to record.
+
+For options A and B:
+
+1. **Formulate concise, actionable lessons.** One or two sentences each. Can cover
    tone, facts, preferred phrasing, when to request access, what to cut, etc.
-3. **Save via update-memory.** Use the **update-memory** skill (see
+2. **Save via update-memory.** Use the **update-memory** skill (see
    `skills/update-memory/SKILL.md` in this plugin) with the namespace slug
    `customer-support-email-lessons`.
    - **GET first** to retrieve existing lessons.
@@ -273,9 +283,7 @@ If the user pastes one or more edited replies:
      one, update it rather than adding a near-duplicate.
    - **Never overwrite completely** unless the GET returned empty/nil. Always merge.
    - Keep the list context-window-efficient. Condense aggressively.
-4. Confirm: `✓ Recorded {N} new lesson(s) to customer-support-email-lessons on Context Link.`
-
-If the user says they used drafts as-is or declines, move on.
+3. Confirm: `✓ Recorded {N} new lesson(s) to customer-support-email-lessons on Context Link.`
 
 ---
 
