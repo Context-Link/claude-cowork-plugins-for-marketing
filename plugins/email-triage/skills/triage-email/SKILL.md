@@ -108,10 +108,14 @@ Found {N} unread emails from the last 24 hours:
 | 2 | ... | ... | ... |
 ```
 
-Ask the user to confirm before proceeding:
+**Do not ask for confirmation.** Proceed to draft replies for all emails automatically.
 
-> I found {N} unread emails. Want me to create draft replies for all of them,
-> or would you like to pick specific ones?
+The only exceptions — skip (and flag to the user) emails that appear to be:
+- Spam or marketing newsletters
+- Phishing or suspicious/malicious
+- Automated system notifications that don't need a reply
+
+For skipped emails, note them at the end: `⚠ Skipped {N} emails (spam/automated).`
 
 ### Step 2 — Generate reply using draft-email-response
 
@@ -149,14 +153,23 @@ The placeholder tag `[REPLY NEEDED]` makes these easy to find and filter in the 
 
 ### Step 3 — Deliver the drafts
 
-Check the `output` arg to determine where to put the drafts. If `output` was not
-provided, ask the user:
+Check the `output` arg to determine where to put the drafts.
+
+If `output` was not provided, check the lessons loaded in Step 0 for a saved output
+preference (look for a lesson about "output preference" or "draft delivery"). If found,
+use that preference without asking.
+
+If no arg and no saved preference, ask the user:
 
 > Where would you like the draft replies?
 >
 > 1. **Apple Mail** — create drafts directly in Mail.app on your Mac
 > 2. **Desktop folder** — save as .rtf files in a dated folder on your Desktop
 > 3. **Chat** — display them here so you can copy-paste
+
+After the user chooses, save their preference as a lesson via **update-memory** to
+`customer-support-email-lessons` so they won't be asked again next time. E.g.:
+`"Output preference: always deliver drafts to Apple Mail unless told otherwise."`
 
 #### Output: `apple-mail`
 
@@ -306,6 +319,6 @@ For options A and B:
 ## Important notes
 
 - Never send an email automatically. Only create drafts.
-- Always ask for user confirmation before creating drafts.
-- Respect the user's choice if they want to skip specific emails.
+- Draft all emails automatically — do not ask for confirmation. Only skip spam, phishing, or automated notifications.
+- Respect the user's choice if they want to skip specific emails after seeing the summary.
 - The `[REPLY NEEDED]` tag is a convention — the user can customise it.
