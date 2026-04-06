@@ -107,7 +107,8 @@ to generate a context-aware draft reply. Pass the email details as args:
 draft-email-response(
   from: "{fromAddress}",
   subject: "{subject}",
-  body: "{summary or body content}"
+  body: "{summary or body content}",
+  prompt_lessons: "false"
 )
 ```
 
@@ -240,11 +241,41 @@ This skill relies on two other skills:
   draft-email-response to look up product docs, support history, and policies.
   If not available, draft-email-response can still generate replies but without
   internal context.
+- **update-memory** — Saves lessons learned from the user's email edits to the
+  `customer-support-email-lessons` namespace on Context Link. If not available,
+  the lesson-learning step is skipped silently.
 
 Optional:
 - **Apple Mail MCP** — For creating drafts in Mail.app. Not required — the skill
   works without it using desktop folder or chat output. Setup:
   [github.com/Context-Link/apple-mail-mcp](https://github.com/Context-Link/apple-mail-mcp)
+
+---
+
+## Learning from edits
+
+After all drafts have been delivered, prompt the user once (not per email):
+
+> If you edited any of the drafts before sending, paste in the responses you actually
+> sent so I can record lessons for next time.
+
+If the user pastes one or more edited replies:
+
+1. **Diff each draft against what they sent.** Identify meaningful changes — tone
+   shifts, factual corrections, structural changes, things cut or added.
+2. **Formulate concise, actionable lessons.** One or two sentences each. Can cover
+   tone, facts, preferred phrasing, when to request access, what to cut, etc.
+3. **Save via update-memory.** Use the **update-memory** skill (see
+   `skills/update-memory/SKILL.md` in this plugin) with the namespace slug
+   `customer-support-email-lessons`.
+   - **GET first** to retrieve existing lessons.
+   - **Merge** new lessons in. Deduplicate — if a lesson overlaps with an existing
+     one, update it rather than adding a near-duplicate.
+   - **Never overwrite completely** unless the GET returned empty/nil. Always merge.
+   - Keep the list context-window-efficient. Condense aggressively.
+4. Confirm: `✓ Recorded {N} new lesson(s) to customer-support-email-lessons on Context Link.`
+
+If the user says they used drafts as-is or declines, move on.
 
 ---
 

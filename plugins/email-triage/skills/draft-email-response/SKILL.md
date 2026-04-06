@@ -16,6 +16,10 @@ args:
   body:
     description: "The email body content to reply to"
     required: false
+  prompt_lessons:
+    description: "Whether to prompt the user for email lessons after drafting. Set to 'false' when called from triage-email (which handles lessons itself). Defaults to 'true'."
+    required: false
+    default: "true"
 ---
 
 # Draft Email Response Skill
@@ -31,6 +35,10 @@ a clear, helpful draft reply the user can send or lightly edit.
 
 This skill requires the **get-context** skill to be available. It uses Context Link
 to look up product knowledge, support docs, and past answers before drafting a reply.
+
+It also uses the **update-memory** skill to save lessons learned from the user's edits
+to the `customer-support-email-lessons` namespace on Context Link. If update-memory is
+not available, skip the lesson-learning step silently.
 
 If get-context is not available or Context Link is not configured, warn the user:
 
@@ -168,3 +176,33 @@ Subject: Re: {subject}
 
 Only include Required actions if the draft commits to something the rep must do.
 Only include Sources if you actually used retrieved context.
+
+---
+
+## Learning from edits
+
+**Skip this section entirely if `prompt_lessons` is `"false"`.**
+
+After presenting the draft, ask the user:
+
+> If you didn't use my draft verbatim, paste in the response you actually sent so I
+> can record lessons for next time.
+
+If the user pastes their actual sent email:
+
+1. **Diff the draft against what they sent.** Identify every meaningful change — tone
+   shifts, factual corrections, structural changes, things they cut, things they added.
+2. **Formulate concise, actionable lessons.** Each lesson should be one or two sentences
+   max. They can cover anything: tone, factual corrections, preferred phrasing, when to
+   request access vs. give instructions, what to cut, what to include, etc.
+3. **Save via update-memory.** Use the **update-memory** skill (see `skills/update-memory/SKILL.md`
+   in this plugin) with the namespace slug `customer-support-email-lessons`.
+   - **GET first** to retrieve existing lessons.
+   - **Merge** the new lessons into the existing list. Deduplicate — if a new lesson
+     overlaps with an existing one, update the existing one rather than adding a duplicate.
+   - **Never overwrite completely** unless the GET returned empty/nil. Always merge in.
+   - The goal is a single, context-window-efficient list of lessons that grows smarter
+     over time without growing long. Condense and consolidate aggressively.
+4. Confirm: `✓ Recorded {N} new lesson(s) to customer-support-email-lessons on Context Link.`
+
+If the user says they used it as-is or declines to share, move on — no lessons to record.
