@@ -9,6 +9,15 @@
         "chat_compatible": true
     },
     {
+        "name": "ask-question",
+        "description": "Ask a direct question against the user's Context Link and receive a concise, cited answer drawn from their connected sources. Use when the user says \"ask context link\", \"ask my docs\", \"what does my knowledge base say about\", or asks a direct question whose answer should be grounded in the user's own content. Pro-plan feature.",
+        "plugin": "context-link",
+        "version": "0.1.0",
+        "path": "plugins/context-link(by-context-link)/skills/ask-question/SKILL.md",
+        "tags": ["knowledge-base", "q-and-a", "grounded-answer", "citations"],
+        "chat_compatible": true
+    },
+    {
         "name": "save-memory",
         "description": "Save conversation content or specified text to Context Link for later retrieval. Use when the user says \"save this\", \"remember this\", \"save memory\", \"save to context link\", or asks to store information for future reference.",
         "plugin": "context-link",
