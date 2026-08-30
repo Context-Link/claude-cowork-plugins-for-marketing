@@ -5,13 +5,13 @@ description: >
   answer drawn from their connected sources. Use when the user says "ask my
   context", "what does my knowledge base say about…", "answer this from my
   docs", or asks a direct question whose answer should be grounded in the
-  user's own content. Pro-plan feature.
-version: 0.1.0
+  user's own content.
+version: 0.1.1
 ---
 
 **What is Context Link?** Context Link is an external service that indexes connected sources (websites, Google Drive, Notion, files, email) and memories into a searchable knowledge base. The ask-question endpoint returns a single concise answer (≤ 1 paragraph) with citations, grounded in the user's own content. If you don't know the user's Context Link URL, ask them for it.
 
-> **Pro plan:** the ask-question endpoint is a Pro-plan feature. A `402` response means the user needs to upgrade.
+> A `402` response means the user's subscription doesn't include this endpoint — suggest they check their Context Link plan.
 
 ---
 
@@ -60,6 +60,6 @@ curl -s "~~context link url~~"
 
 - One GET request per question. Do not retry unless the user asks.
 - Do not supplement with outside information unless the user explicitly asks. The value is the grounded, cited answer.
-- If the response is `402`, tell the user the ask-question feature requires the Pro plan and link them to `www.context-link.ai`.
+- If the response is `402`, tell the user their subscription doesn't include the ask-question endpoint and link them to `www.context-link.ai` to check their plan.
 - If the response is `429` with an "allowance" message, tell the user they have exceeded their monthly Context Link question allowance.
 - If the request is blocked, ask the user to add `*.context-link.ai` to Claude's **Settings → Capabilities → Domain Allowlist** (or select "All domains"), then retry.
